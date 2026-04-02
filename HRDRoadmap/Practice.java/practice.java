@@ -72,7 +72,7 @@ Output: 4
         
         return low;
     }
-    public static int Leetcode11a(int height[]){
+    public static int Leetcode11(int height[]){
 
 /**
 11. Container With Most Water
@@ -120,8 +120,37 @@ Output: 1
 
         return max;
     }
+    public static double Leetcode643(int nums[],int k){
+
+/**
+643. Maximum Average Subarray I
+Example 1:
+Input: nums = [1,12,-5,-6,50,3], k = 4
+Output: 12.75000
+Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
+
+Example 2:
+Input: nums = [5], k = 1
+Output: 5.00000
+         */
+        
+        double max=0;
+        int sum=0;
+        for(int i=0;i<k;i++){
+            sum+=nums[i];
+        }
+        
+        for(int i=0;i<nums.length;i++){
+            sum+=nums[i];
+        }
+
+
+        
+        return max;
+    }
     public static void main(String[] args) {
-        int []height = {1,8,6,2,5,4,8,3,7};
-        System.out.println(Leetcode11a(height));
+        int []nums = {1,12,-5,-6,50,3};
+        int k=4;
+        System.out.println(Leetcode643(nums,k));
     }
 }
