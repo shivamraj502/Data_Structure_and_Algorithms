@@ -1,0 +1,127 @@
+public class practice {
+    public static int Leetcode35a(int target,int[]nums){
+/**
+35. Search Insert Position
+Easy
+Topics
+premium lock icon
+Companies
+Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+ 
+
+Example 1:
+
+Input: nums = [1,3,5,6], target = 5
+Output: 2
+Example 2:
+
+Input: nums = [1,3,5,6], target = 2
+Output: 1
+Example 3:
+
+Input: nums = [1,3,5,6], target = 7
+Output: 4
+         */
+        if(target>nums[nums.length-1]){return nums.length;}
+        
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==target){
+                return i;
+            }
+            if(nums[i]>target){
+                return i;
+            }
+        }
+        return -1;
+    }
+    public static int Leetcode35b(int target,int[]nums){
+/**
+35. Search Insert Position 
+Easy
+Topics
+premium lock icon
+Companies
+Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+You must write an algorithm with O(log n) runtime complexity.
+
+Example 1:
+Input: nums = [1,3,5,6], target = 5
+Output: 2
+Example 2:
+
+Input: nums = [1,3,5,6], target = 2
+Output: 1
+Example 3:
+
+Input: nums = [1,3,5,6], target = 7
+Output: 4
+         */
+        if(target>nums[nums.length-1]){return nums.length;}
+        
+        int low=0;
+        int high=nums.length-1;
+        while(low<=high){
+        int mid=(low+high)/2;
+            if(nums[mid]==target){return mid;}
+            else if(nums[mid]>target){ high = mid-1;}
+            else{ low = mid+1;}
+        }
+        
+        return low;
+    }
+    public static int Leetcode11a(int height[]){
+
+/**
+11. Container With Most Water
+Medium
+Topics
+premium lock icon
+Companies
+Hint
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).Find two lines that together with the x-axis form a container, such that the container contains the most water.Return the maximum amount of water a container can store.Notice that you may not slant the container.
+
+Example 1:
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
+
+Example 2:
+Input: height = [1,1]
+Output: 1
+         */
+        
+        int max=0;
+        int left=0;
+        int right=height.length-1;
+
+        while(left < right){
+
+            int min=Math.min(height[left],height[right]);
+            int dis=right-left;
+            int area=min*dis;
+            if(max < area){max = area;}
+
+            // System.out.println("right: "+right);
+            // System.out.println("left: "+left);
+
+            if(height[left]<height[right]){left++;}
+            else{right--;}
+
+            // System.out.println("right: "+right);
+            // System.out.println("left: "+left);
+            // System.out.println("min: "+min);
+            // System.out.println("distance: "+dis);
+            // System.out.println("area: "+area);
+            // System.out.println();
+            }
+
+        return max;
+    }
+    public static void main(String[] args) {
+        int []height = {1,8,6,2,5,4,8,3,7};
+        System.out.println(Leetcode11a(height));
+    }
+}

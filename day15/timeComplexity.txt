@@ -1,0 +1,11 @@
+Day 15 — Time Complexity Introduction
+Concept: Big O notation, constant, linear, quadratic complexity.
+Problem: Analyse your previous problems’ time complexity.
+Reference: GFG Big-O Tutorial
+Goal: Estimate algorithm efficiency.
+
+day 14 : n^2
+day13 : n
+day12: n^3
+day11: n^2
+day10: n^2

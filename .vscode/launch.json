@@ -1,0 +1,305 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "TowerofHanoi",
+            "request": "launch",
+            "mainClass": "TowerofHanoi",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "practice",
+            "request": "launch",
+            "mainClass": "practice",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "PascalsTriangle",
+            "request": "launch",
+            "mainClass": "PascalsTriangle",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "Combination",
+            "request": "launch",
+            "mainClass": "HRDRoadmap.MediumProblems.Combination",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "leetcode459_b",
+            "request": "launch",
+            "mainClass": "leetcode459_b",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "ArrangeZeroes",
+            "request": "launch",
+            "mainClass": "ArrangeZeroes",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "ArrangeNonZeroes",
+            "request": "launch",
+            "mainClass": "ArrangeNonZeroes",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "BestTimetoBuyAndSellStock2",
+            "request": "launch",
+            "mainClass": "BestTimetoBuyAndSellStock2",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "BestTimetoBuyAndSellStock1",
+            "request": "launch",
+            "mainClass": "BestTimetoBuyAndSellStock1",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "BirthdayCakeCandle",
+            "request": "launch",
+            "mainClass": "BirthdayCakeCandle",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "CountUniqueChar",
+            "request": "launch",
+            "mainClass": "CountUniqueChar",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "FindFirstNonRepeatChar",
+            "request": "launch",
+            "mainClass": "FindFirstNonRepeatChar",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "Divisibleby13",
+            "request": "launch",
+            "mainClass": "Divisibleby13",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "check",
+            "request": "launch",
+            "mainClass": "check",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "PalindromeNumber",
+            "request": "launch",
+            "mainClass": "PalindromeNumber",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "DistancebetweenTwoPoints",
+            "request": "launch",
+            "mainClass": "DistancebetweenTwoPoints",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "LinkedListMenu_2",
+            "request": "launch",
+            "mainClass": "LinkedListMenu_2",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "checkPower",
+            "request": "launch",
+            "mainClass": "HRDRoadmap.EasyProblems.checkPower",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "dll",
+            "request": "launch",
+            "mainClass": "day36.dll",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "DLL",
+            "request": "launch",
+            "mainClass": "day36.DLL",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "a",
+            "request": "launch",
+            "mainClass": "day36.a",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "primeTesting",
+            "request": "launch",
+            "mainClass": "primeTesting",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "DiceProblem",
+            "request": "launch",
+            "mainClass": "HRDRoadmap.BasicProblems.DiceProblem",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "check",
+            "request": "launch",
+            "mainClass": "HRDRoadmap.EasyProblems.check",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "ReverseDigits",
+            "request": "launch",
+            "mainClass": "HRDRoadmap.EasyProblems.ReverseDigits",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "SumofDigits",
+            "request": "launch",
+            "mainClass": "HRDRoadmap.EasyProblems.SumofDigits",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "middleoftheLinkedList",
+            "request": "launch",
+            "mainClass": "day35.middleoftheLinkedList",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "MiddleoftheLinkedList",
+            "request": "launch",
+            "mainClass": "day35.MiddleoftheLinkedList",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "a",
+            "request": "launch",
+            "mainClass": "day35.a",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "ReverseLinkedList",
+            "request": "launch",
+            "mainClass": "day34.ReverseLinkedList",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "LinkedList",
+            "request": "launch",
+            "mainClass": "LinkedList",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "a",
+            "request": "launch",
+            "mainClass": "day33.a",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "AAA",
+            "request": "launch",
+            "mainClass": "AAA",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "a",
+            "request": "launch",
+            "mainClass": "a",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "searchAnElement",
+            "request": "launch",
+            "mainClass": "day33.searchAnElement",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "SearchAnElement",
+            "request": "launch",
+            "mainClass": "day33.SearchAnElement",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "InsertDelete",
+            "request": "launch",
+            "mainClass": "InsertDelete",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "MoveZeroes",
+            "request": "launch",
+            "mainClass": "MoveZeroes",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "InsertionSort",
+            "request": "launch",
+            "mainClass": "InsertionSort",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "BinarySearch",
+            "request": "launch",
+            "mainClass": "BinarySearch",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "RemoveDuplicates",
+            "request": "launch",
+            "mainClass": "RemoveDuplicates",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "Vehicle",
+            "request": "launch",
+            "mainClass": "Vehicle",
+            "projectName": "Dsa journey_b3de3125"
+        },
+        {
+            "type": "java",
+            "name": "Attach",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": "<debug port of the debuggee>"
+        }
+    ]
+}
