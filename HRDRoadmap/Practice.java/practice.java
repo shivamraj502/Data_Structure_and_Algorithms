@@ -126,6 +126,7 @@ Output: 1
 643. Maximum Average Subarray I
 Example 1:
 Input: nums = [1,12,-5,-6,50,3], k = 4
+               0  1  2  3  4 5
 Output: 12.75000
 Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75
 
@@ -133,24 +134,67 @@ Example 2:
 Input: nums = [5], k = 1
 Output: 5.00000
          */
-        
-        double max=0;
+
+        // if(nums.length==1)
+
         int sum=0;
+
         for(int i=0;i<k;i++){
             sum+=nums[i];
-        }
+            // System.out.println("sum: "+sum);
+        }System.out.println();
         
-        for(int i=0;i<nums.length;i++){
-            sum+=nums[i];
+        double max=nums[0];
+        for(int i=k;i<nums.length;i++){
+            sum = sum + nums[i] - nums[i-k];
+            if(max<sum){max =sum;}
+            // System.out.println("nums[i]: "+nums[i]);
+            // System.out.println("nums[i-k]: "+nums[i-k]);
+            // System.out.println("sum: "+sum);
+            // System.out.println("max: "+max);
         }
 
-
-        
-        return max;
+        return (max/k);
     }
+    public static void bubblesort(int nums[]){
+
+        for(int k=0;k<nums.length-1;k++){
+        for(int i=0;i<nums.length-1-k;i++){
+            if(nums[i+1]<nums[i]){
+                int temp = nums[i];
+                nums[i] = nums[i+1];
+                nums[i+1] = temp;
+            }
+        }}System.out.println();
+
+        System.out.println("sorted: ");
+        for(int i=0;i<nums.length;i++){
+            System.out.print(nums[i]+" ");
+        }System.out.println();
+    }
+    public static void selectionSort(int nums[]){
+
+        for(int k=0;k<nums.length-1;k++){
+            int min=k;
+        for(int i=k+1;i<nums.length;i++){
+            if(nums[i]<nums[min]){
+                min = i;
+            }
+        }       int temp =nums[k];
+                nums[k] = nums[min];
+                nums[min] = temp;
+
+        
+        }System.out.println();
+
+        System.out.println("sorted: ");
+        for(int i=0;i<nums.length;i++){
+            System.out.print(nums[i]+" ");
+        }System.out.println();
+    }
+    
     public static void main(String[] args) {
         int []nums = {1,12,-5,-6,50,3};
-        int k=4;
-        System.out.println(Leetcode643(nums,k));
+        selectionSort(nums);
     }
 }
