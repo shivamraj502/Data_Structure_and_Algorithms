@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class practice {
     public static int Leetcode35a(int target,int[]nums){
 /**
@@ -210,9 +212,104 @@ Output: 5.00000
             System.out.print(nums[i]+" ");
         }System.out.println();
     }
+    public static class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data=data;
+            this.next=null;
+        }
+    }
+    public static Node Leetcode206(Node head){  
+        // null -> 1 -> 2 -> 3 -> 4 -> 5 -> null
+        /* null <- 1 <- 2 <- 3 <- 4 <- 5
+         */
+        
+        Node pre = null;      // null ,1,2,3,4,5
+        Node curr = head;     //   1  ,2,3,4,5,null
+        Node nxt=null;        // null ,3,4,5,null
+
+        while(curr != null){
+            nxt=curr.next;     // 2
+            curr.next=pre;     // null
+            pre=curr;          // 1
+            curr=nxt;          // 2
+        }head=pre;
+
+        System.out.println("check"+head.data);
+
+        return head;
+
+        /*
+        public static void main(String[] args) {
+        Node head = new Node(1);
+        Node a = new Node(2);
+        Node b = new Node(3);
+        Node c = new Node(4);
+        Node tail = new Node(5);
+
+        head.next=a;
+        a.next=b;
+        b.next=c;
+        c.next=tail;
+
+        head = Leetcode206(head);
+        // Leetcode206(head);               // not working because head not changed in method
+
+        Node temp = head;
+        while(temp != null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }System.out.println();
+
+        } */
+    }
+    public static boolean Leetcode20(String s){
+        boolean istrue=true;
+        Stack<Character> st = new Stack<>();
+
+                                        // STRING HANDLING METHOD
+        // for(int i=0;i<s.length();i++){
+        //     if(s.contains("()")){
+        //         s=s.replace("()", "");  //don't use replaceAll
+        //     }else if(s.contains("{}")){
+        //         s=s.replace("{}", "");
+        //     }else if(s.contains("[]")){
+        //         s=s.replace("[]", "");
+        //     }
+        // }return s.isEmpty();
+
+                                        // STACK METHOD
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='('){
+                st.push(')');
+            }else if(s.charAt(i)=='{'){
+                st.push('}');
+            }else if(s.charAt(i)=='['){
+                st.push(']');
+            }else if(s.charAt(i)==')'){
+                if(st.pop()==')'){
+                    continue;
+                }else{return !istrue;}
+            }else if(s.charAt(i)=='}'){
+                if(st.pop()=='}'){
+                    continue;
+                }else{return !istrue;}
+            }else if(s.charAt(i)==']'){
+                if(st.pop()==']'){
+                    continue;
+                }else{return !istrue;}
+            }
+        }
+
+        return istrue;
+    }
+    public static void coinChange(int arr[] ,int target){
+
+    }
     
     public static void main(String[] args) {
-        int []nums = {5, 3, 4, 1};
-        insertionSort(nums);
+        String s= "([]])";
+        System.out.println("isValid: "+Leetcode20(s));
     }
 }
