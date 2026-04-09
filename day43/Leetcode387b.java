@@ -10,6 +10,7 @@ public class Leetcode387b {
         }
         
         return -1;
+        
     }
     public static void main(String[] args) {
         String s = "lovelevetcotddecez";
