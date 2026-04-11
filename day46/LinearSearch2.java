@@ -1,10 +1,13 @@
-// Day 17 — Linear Search
-// Concept: Sequential search in arrays.
-// Problem: Linear Search – GFG
-// Goal: First search algorithm.
-
+/**
+Day 46 – Linear Search
+Concept: Basic search; best for small/unordered data.
+Implement: linearSearch(int arr[], int key)
+Problem: Linear Search – GFG
+Goal: Understand O(n) complexity.
+ */
+   
 import java.util.Scanner;
-public class LinearSearch {
+public class LinearSearch2 {
     public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
 
@@ -19,6 +22,7 @@ public class LinearSearch {
 
     System.out.println("enter target to search: ");
     int target = in.nextInt();
+
     for(int i=0;i<n;i++){
         if(arr[i] == target){
             System.out.println("found");
