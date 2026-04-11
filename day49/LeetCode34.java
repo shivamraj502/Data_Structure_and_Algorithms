@@ -21,6 +21,7 @@ public class LeetCode34 {
         int target = 10;
         int res[] = searchRange(nums,target);
 
+        
         for(int i=0;i<res.length;i++){
             System.out.print(res[i]+" ");
         }
