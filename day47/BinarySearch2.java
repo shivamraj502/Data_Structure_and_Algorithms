@@ -8,6 +8,26 @@ Goal: Practice mid calculation safely (mid = low + (high - low)/2).
 
 import java.util.Scanner;
 public class BinarySearch2 {
+    public static int search(int[] nums, int target) {
+        int low = 0;
+        int high = nums.length-1;
+        int mid=0;
+
+        // for(int i= low;i<high;i++){
+        while (low <= high){
+            mid = (low + high)/2;
+            if(nums[mid] == target){
+                return mid;
+                
+            }else
+            if(nums[mid] > target){
+                high = mid -1;
+            }else{
+                low = mid+1;
+            }
+        }
+        return -1;
+    }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
@@ -31,24 +51,7 @@ public class BinarySearch2 {
         System.out.println("enter target to search: ");
         int target = in.nextInt();
 
-        int low = 0;
-        int high = arr.length-1;
-
-        // for(int i= low;i<high;i++){
-        while (low <= high){
-            int mid = (low + high)/2;
-            if(arr[mid] == target){
-                System.out.println("found");
-                return;
-            }else
-            if(arr[mid] > target){
-                high = mid -1;
-            }else{
-                low = mid+1;
-            }
-        }
-        System.out.println("not found");
-        return ;
+        System.out.println("result index: "+search(arr,target));
         
     }
 }
