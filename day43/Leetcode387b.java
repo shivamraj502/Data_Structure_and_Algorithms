@@ -1,19 +1,30 @@
+import java.util.HashSet;
+import java.util.Set;
 public class Leetcode387b {
     public static int firstUniqChar(String s) {
-        // if(s.length()==1){return 0;}
-        for(int i=0;i<s.length();i++){
-            int count=0;
-            for(int j=0;j<s.length();j++){
-                if(s.length()==1 ||s.charAt(i)==s.charAt(j)){count++;}
-            }
-            if(count==1){return i;}
+        
+                    // ARRAY METHOD
+        // int [] fr = new int[26];       // a -> 97
+        // char []str = s.toCharArray();
+        // for(char c : str){
+        //     // System.out.println('a'-0);
+        //     fr[c - 'a']++;
+        // }
+        // for(int i=0;i<s.length();i++){
+        //     if(fr[str[i]-'a']==1){return i;}
+        // }return -1;
+
+        while(int i< s.length){ 
+        Set<Character> set = new HashSet<>();
+        if(set.contains(s.charAt(i)))
+
+            i++;
         }
-        
+
         return -1;
-        
     }
     public static void main(String[] args) {
-        String s = "lovelevetcotddecez";
+        String s = "aabb";
         System.out.println("s: "+s);
         System.out.println(firstUniqChar(s));
     }

@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Leetcode387b",
+            "request": "launch",
+            "mainClass": "Leetcode387b",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
             "name": "towerOfHanoii",
             "request": "launch",
             "mainClass": "towerOfHanoii",
