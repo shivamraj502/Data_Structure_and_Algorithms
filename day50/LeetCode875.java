@@ -16,9 +16,9 @@ public class LeetCode875 {
 
         for(int i=1;i<=max;i++){ 
             int sum=0;
-            for(int j=0;j<piles.length;j++){
+            for(int j=0;j<piles.length;j++){  // { 30,11,23,4,20 } div: 2 {15, 5.5, 11.5, 2, 10 }
             if(piles[j]%i==0){
-                // System.out.println("new: "+ (piles[j]/i));
+                // System.out.println("new: "+ (piles[j]/i)); 
                 sum=sum+(piles[j]/i);
                 // System.out.println("new sum: "+sum);
             }else{
@@ -34,9 +34,10 @@ public class LeetCode875 {
     }
 
     public static void main(String[] args) {
-        int[] piles = { 30,11,23,4,20 };
-        int h = 6;
+        int[] piles = { 30,11,23,4,20 }; //speed = 50 banana / hour    { 30,11,23,4,20 }
+        int h = 6;                                            //speed23:  2  1  1 1  1
         System.out.println("speed: "+minEatingSpeed(piles, h));
+        // System.out.println(Math.ceil(15.2));
     }
 }
 
@@ -50,4 +51,5 @@ public class LeetCode875 {
  * Example 3:
  * Input: piles = [30,11,23,4,20], h = 6
  * Output: 23
+ * Math.ceil(15,2)
  */
