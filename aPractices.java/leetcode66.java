@@ -56,8 +56,8 @@ public class leetcode66 {
         if(n9 == digits.length){
         int [] temp = new int[digits.length+1];
         for(int i=(digits.length);i>=0;i--){
-            temp[i]=sum%10;
-            sum/=10;
+            temp[i] = sum%10;
+            sum /= 10;
         }return temp;
         
         }else{
@@ -85,7 +85,7 @@ public class leetcode66 {
 
     }
     public static void main(String[] args) {
-        int arr[] = {8,9,9,9,9};
+        int arr[] = {9,9,9,9,9,9};
         arr = plusOne3(arr);
 
         for(int i=0;i<arr.length;i++){
@@ -119,4 +119,5 @@ Thus, the result should be [1,0].
 
 Ex 4: 9,8,7,6,5,4,3,2,1,0
 Ex 5: 8,9,9,9,9
+Ex 6: 9,9,8,9,9
  */
