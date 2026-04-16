@@ -48,8 +48,9 @@ public class leetcode66 {
     }
     public static int[] plusOne3(int[] digits) {
         int sum=0;int n9=0;
+        
         for(int i=0;i<digits.length;i++){
-            if(digits[i]==9){n9+=1;}
+            if(digits[i]==9){n9 += 1;}
             sum=sum*10+digits[i];
         }sum+=1;
 
@@ -59,6 +60,44 @@ public class leetcode66 {
             temp[i] = sum%10;
             sum /= 10;
         }return temp;
+        
+        }else{
+        int [] temp = new int[digits.length];
+        for(int i=(digits.length-1);i>=0;i--){
+
+                if(i==digits.length-1 && digits[digits.length-1]==9){
+                    for(int j=digits.length-1;j>=0;j--){
+                        // System.out.print(".");
+                        if(digits[j]==9){
+                        temp[j]=0;
+                        i--;
+                        }else{
+                            temp[j]=digits[j]+1;
+                            // i--;
+                            break;
+                        }
+                    }System.out.println();
+                
+            }else{
+                if(i==digits.length-1){temp[i]=digits[i]+1;}
+                else temp[i]=digits[i];}
+        }return temp;
+        }
+
+    }
+    public static int[] plusOne4(int[] digits) {
+        //int sum=0;
+        int n9=0;
+        
+        for(int i=0;i<digits.length;i++){
+            if(digits[i]==9){n9 += 1;}
+            //sum=sum*10+digits[i];
+        }//sum+=1;
+
+        if(n9 == digits.length){
+        int [] temp = new int[digits.length+1];
+        temp[0] = 1;
+        return temp;
         
         }else{
         int [] temp = new int[digits.length];
