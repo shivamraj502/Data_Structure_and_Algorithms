@@ -118,7 +118,7 @@ public class leetcode78 {
         curr.add(arr[i]);
         helper(arr, i + 1, curr);
 
-        // 🔄 BACKTRACK
+        // 🔄 BACKTRACKd
         curr.remove(curr.size() - 1);
 
         // ❌ EXCLUDEd
