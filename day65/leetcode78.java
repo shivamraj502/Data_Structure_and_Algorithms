@@ -9,9 +9,20 @@ import java.util.ArrayList;
 import java.util.List;
 public class leetcode78 {
     public static List<List<Integer>> subsets(int[] nums) {
-        
-        return null;
+        List<List<Integer>> resultList = new ArrayList<>();
+        backtrack(resultList, new ArrayList<>(), nums, 0);
+        return resultList;
     }
+
+    public static void backtrack(List<List<Integer>> resultSets, List<Integer> tempSet, int nums[], int start){
+        resultSets.add(new ArrayList<>(tempSet));
+        for(int i=start;i<nums.length;i++){
+            tempSet.add(nums[i]);
+            backtrack(resultSets, tempSet, nums, i+1);
+            tempSet.remove(tempSet.size()-1);
+        }
+    }
+
     public static int subsets1(int n) { //Count total number of subsets
         int Tsets = 1;
         for(int i=0;i<n;i++){
@@ -113,23 +124,20 @@ public class leetcode78 {
             System.out.print(curr);
             return;
         }
-
-        // ✅ INCLUDE
+        // INCLUDE
         curr.add(arr[i]);
         helper(arr, i + 1, curr);
-
-        // 🔄 BACKTRACKd
+        // BACKTRACKd
         curr.remove(curr.size() - 1);
-
-        // ❌ EXCLUDEd
+        // EXCLUDEd
         helper4(arr, i + 1, curr);
     }
 
     public static void main(String[] args) {
         // int n = 3;
-        int nums[] = {1,2,3};
+        int nums[] = {3,2,1};
         // String s = "ab";
-        subsets3(nums);
+        System.out.println(subsets(nums));
     }
 }
 
