@@ -39,8 +39,15 @@ public class LeetCode51 {
        printBinN3(n,s+"0");
        printBinN3(n,s+"1");
     }
+    public static void printSubseq(String s, String t){       // 0 1
+       if(t.length() == s.length()){
+            return;
+       } 
+       printSubseq(s, t);
+       
+    }
     public static void main(String[] args) {
-        printBinN3(3,"");
+        printSubseq("ab","");
     }
 }
 
