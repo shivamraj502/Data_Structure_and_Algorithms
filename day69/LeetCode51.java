@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
 Day 69 – Backtracking Basics
 Concept: Trial & error recursion; undo steps after recursion.
@@ -15,9 +17,10 @@ public class LeetCode51 {
        printN(n-1);
        System.out.print(n +" ");
     }
-    public static void printBinN1(int n){
+    public static void printBinN1(int n){       // 0 1
+       ArrayList<String> res = new ArrayList<>(); 
        if(n==0) return ;
-       printN(n-1);
+       printBinN1(n-1);
        System.out.print(n +" ");
     }
     public static void main(String[] args) {
