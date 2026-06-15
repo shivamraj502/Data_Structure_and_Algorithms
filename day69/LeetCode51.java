@@ -39,6 +39,7 @@ public class LeetCode51 {
        printBinN3(n,s+"0");
        printBinN3(n,s+"1");
     }
+
     public static void printSubseq(String s, String t){       // 0 1
        if(t.length() == s.length()){
             return;
@@ -46,12 +47,25 @@ public class LeetCode51 {
        printSubseq(s, t);
        
     }
+    
+    public static void printSubseq2(String s, int i, String curr){       // 0 1
+       if(i == s.length()){
+            System.out.println("\"" + curr + "\"");
+            return;
+       } 
+       printSubseq2(s, i+1, curr);
+       printSubseq2(s, i+1, curr+s.charAt(i));
+    }
+    
+
     public static void main(String[] args) {
-        printSubseq("ab","");
+        LeetCode78("12",0,"");
     }
 }
 
 /**
  * 1️⃣ Print Numbers from 1 to N
  * 2️⃣ Print All Binary Strings of Length N
+ * 3️⃣ Print All Subsequences of a String
+ * 4️⃣ Subsets (LeetCode78)
  */
