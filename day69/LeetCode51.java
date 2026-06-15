@@ -31,8 +31,16 @@ public class LeetCode51 {
        printBinN2(n,s+"0");
        printBinN2(n,s+"1");
     }
+    public static void printBinN3(int n , String s){       // 0 1
+       if(s.length() == n){
+            System.out.println(s);
+            return;
+       } 
+       printBinN3(n,s+"0");
+       printBinN3(n,s+"1");
+    }
     public static void main(String[] args) {
-        printBinN2(2,"");
+        printBinN3(3,"");
     }
 }
 
