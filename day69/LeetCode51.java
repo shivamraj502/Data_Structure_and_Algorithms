@@ -56,7 +56,14 @@ public class LeetCode51 {
        printSubseq2(s, i+1, curr);
        printSubseq2(s, i+1, curr+s.charAt(i));
     }
-    
+    public static void LeetCode78(String s, int i, String curr){       // 0 1
+       if(i == s.length()){
+            System.out.println("[" + curr + "]");
+            return;
+       } 
+       LeetCode78(s, i+1, curr);
+       LeetCode78(s, i+1, curr+s.charAt(i));
+    }
 
     public static void main(String[] args) {
         LeetCode78("12",0,"");
