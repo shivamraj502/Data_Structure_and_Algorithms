@@ -102,11 +102,36 @@ public class LeetCode51 {
          curr.remove(curr.size()-1);
       }
     }
+
+    public static List<String> LetComb(String digits){       
+       List<String> resList= new ArrayList<>();
+
+       if(digits.length() == 0){ return resList;}
+
+       String [] map = {
+         "","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"
+       };
+
+       helperLC(resList,digits,0,"",map);
+       return resList;
+    }
+    public static void helperLC(List<String> resList,String digits,int i,String curr, String[] map){
+
+      if(i==digits.length()){
+         resList.add(curr);
+         return;
+      }
+
+      String letters = map[digits.charAt(i)-'0'];
+      for(int j=0; j<letters.length();j++){
+         helperLC(resList,digits,i+1, curr+letters.charAt(j) ,map);
+      }
+    }
     
 
     public static void main(String[] args) {
-        int [] n = {1,2,3};
-        System.out.println(LeetCode46a(n));
+        String digits = "23";
+        System.out.println(LetComb(digits));
     }
 }
 
@@ -116,4 +141,6 @@ public class LeetCode51 {
  * 3️⃣ Print All Subsequences of a String
  * 4️⃣ Subsets (LeetCode78)
  * 5️⃣ Permutations (LeetCode 46)
+ * 6️⃣ Letter Combinations of Phone Number
+ * 7️⃣ Rat in a Maze
  */
