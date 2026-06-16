@@ -126,7 +126,7 @@ public class leetcode78 {
         }
         // INCLUDE
         curr.add(arr[i]);
-        helper(arr, i + 1, curr);
+        helper4(arr, i + 1, curr);
         // BACKTRACKd
         curr.remove(curr.size() - 1);
         // EXCLUDEd
@@ -135,7 +135,7 @@ public class leetcode78 {
 
     public static void main(String[] args) {
         // int n = 3;
-        int nums[] = {3,2,1};
+        int nums[] = {2,1};
         // String s = "ab";
         System.out.println(subsets(nums));
     }
