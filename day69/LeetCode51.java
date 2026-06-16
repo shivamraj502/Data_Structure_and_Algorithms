@@ -156,12 +156,24 @@ public class LeetCode51 {
        return false;
     }
 
+    public static List<List<String>> nQueen51(int n){
+      List<List<String>> res = new ArrayList<>();
+      
+      char[][] board = new char[n][n];
+      for(int i=0;i<n;i++){
+         Arrays.fill(board[i],'.');
+      }
+      helper51(res,0,board);
+
+      return res;
+    }
+    public static void helper51(List<List<String>> res, int row, int [][] board){
+      
+    }
 
     public static void main(String[] args) {
-        int[][] arr = {{1,0,0},
-                        {1,0,0},
-                        {0,0,0}};
-        System.out.println(ratNmaze(arr,0,0));
+        int n = 4;
+        System.out.println(nQueen51(n));
     }
 }
 
@@ -173,4 +185,5 @@ public class LeetCode51 {
  * 5️⃣ Permutations (LeetCode 46)
  * 6️⃣ Letter Combinations of Phone Number
  * 7️⃣ Rat in a Maze
+ * 7️⃣ n Queen leetcode 51
  */
