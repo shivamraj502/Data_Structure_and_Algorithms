@@ -8,16 +8,17 @@ import java.util.*;
 public class MiniProject9 {
 
     public static boolean ratNmaze(int [][] arr, int i, int j){       
-      if(i == arr.length-1 && j == arr[0].length-1){
-         return true;
-      }
-      
+            
       if(i >= arr.length || j >= arr[0].length){
          return false;
       }
 
       if(arr[i][j] == 0){
          return false;
+      }
+
+      if(i == arr.length-1 && j == arr[0].length-1){
+         return true;
       }
 
       arr[i][j] = 0;
@@ -39,7 +40,7 @@ public class MiniProject9 {
 
         int[][] arr = {
             {1,1,0},
-            {1,1,0},
+            {1,1,1},
             {0,0,0}
         };
 
