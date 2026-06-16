@@ -82,10 +82,31 @@ public class LeetCode51 {
         helper(n, i+1, curr, res);
         curr.remove(curr.size()-1);
     }
+    
+    public static List<List<Integer>> LeetCode46a(int [] nums){       // 0 1
+       List<List<Integer>> resList= new ArrayList<>();
+       helper46(resList,new ArrayList<>(),nums);
+       return resList;
+    }
+    public static void helper46(List<List<Integer>> resList, List<Integer> curr, int [] nums){
+      if(curr.size() == nums.length){
+         resList.add(new ArrayList<>(curr));
+         return;
+      }
+      for(int n: nums){
+         if(curr.contains(n)){
+            continue;
+         }
+         curr.add(n);
+         helper46(resList,curr,nums);
+         curr.remove(curr.size()-1);
+      }
+    }
+    
 
     public static void main(String[] args) {
-        int [] n = {1,2};
-        System.out.println(LeetCode78b(n));
+        int [] n = {1,2,3};
+        System.out.println(LeetCode46a(n));
     }
 }
 
@@ -94,4 +115,5 @@ public class LeetCode51 {
  * 2️⃣ Print All Binary Strings of Length N
  * 3️⃣ Print All Subsequences of a String
  * 4️⃣ Subsets (LeetCode78)
+ * 5️⃣ Permutations (LeetCode 46)
  */
