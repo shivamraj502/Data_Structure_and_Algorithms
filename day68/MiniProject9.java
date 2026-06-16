@@ -7,46 +7,42 @@ Goal: Apply recursion to a real path-finding problem.
 import java.util.*;
 public class MiniProject9 {
 
-    // function to find path
-    public static boolean maze(int[][] arr, int i, int j) {
+    public static boolean ratNmaze(int [][] arr, int i, int j){       
+      if(i == arr.length-1 && j == arr[0].length-1){
+         return true;
+      }
+      
+      if(i >= arr.length || j >= arr[0].length){
+         return false;
+      }
 
-        // reached destination
-        if(i == arr.length-1 && j == arr[0].length-1) {
-            System.out.println("Path Found");
-            return true;
-        }
+      if(arr[i][j] == 0){
+         return false;
+      }
 
-        // out of boundary
-        if(i >= arr.length || j >= arr[0].length) {
-            return false;
-        }
+      arr[i][j] = 0;
 
-        // blocked cell
-        if(arr[i][j] == 0) {
-            return false;
-        }
+      if(ratNmaze(arr,i+1,j)){
+         return true;
+      }
+      
+      if(ratNmaze(arr,i,j+1)){
+         return true;
+      }
 
-        // move DOWN
-        if(maze(arr, i+1, j)) {
-            return true;
-        }
+      arr[i][j]=1;
 
-        // move RIGHT
-        if(maze(arr, i, j+1)) {
-            return true;
-        }
-
-        return false; // no path found
+       return false;
     }
 
     public static void main(String[] args) {
 
         int[][] arr = {
             {1,1,0},
-            {1,1,1},
-            {0,1,1}
+            {1,1,0},
+            {0,0,0}
         };
 
-        System.out.println(maze(arr, 0, 0));
+        System.out.println(ratNmaze(arr, 0, 0));
     }
 }
