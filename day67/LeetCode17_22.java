@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
 Day 67 – Recursion Practice
 Problems to Solve:
@@ -7,17 +10,33 @@ Goal: Practice tree-based recursion.
  */
 
 public class LeetCode17_22 {
-    public static List<List<String>> leet17(int [] nums){
+    public static List<String> LetComb(String digits){       
+       List<String> resList= new ArrayList<>();
 
-        return resultList;
+       if(digits.length() == 0){ return resList;}
+
+       String [] map = {
+         "","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"
+       };
+
+       helperLC(resList,digits,0,"",map);
+       return resList;
     }
-    public static List<List<String>> leet22(int [] nums){
+    public static void helperLC(List<String> resList,String digits,int i,String curr, String[] map){
 
-        return resultList;
+      if(i==digits.length()){
+         resList.add(curr);
+         return;
+      }
+
+      String letters = map[digits.charAt(i)-'0'];
+      for(int j=0; j<letters.length();j++){
+         helperLC(resList,digits,i+1, curr+letters.charAt(j) ,map);
+      }
     }
     public static void main(String[] args) {
-        int [] nums = {1,2,3};
-        System.out.println(leet17(nums));
+        String nums = "23";
+        System.out.println(LetComb(nums));
         // System.out.println(leet22(nums));
     }
 }
