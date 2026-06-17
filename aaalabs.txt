@@ -1,0 +1,419 @@
+1.def astaralgo(start_node,stop_node): 
+    open_set=set([start_node]) 
+    closed_set=set()
+    g={}
+    parents={} 
+    g[start_node]=0
+    parents[start_node]=start_node 
+    while len(open_set)>0:
+        n=None
+        for v in open_set:
+            if n==None or g[v]+h(v)<g[n]+h(n): 
+                n=v
+        if n==stop_node or graph_nodes.get(n)==None: 
+            pass
+        else:
+            for (m,weight) in get_neighbors(n):
+                if m not in open_set and m not in closed_set: 
+                    open_set.add(m)
+                    parents[m]=n 
+                    g[m]=g[n]+weight
+                else:
+                    if g[m]>g[n]+weight: 
+                        g[m]=g[n]+weight 
+                        parents[m]=n
+                        if m in closed_set: 
+                            closed_set.remove(m) 
+                            open_set.add(m)
+        if n==None:
+            print('no path') 
+            return None
+        if n==stop_node:
+            path=[]
+            while parents[n]!=n: 
+                path.append(n) 
+                n=parents[n]
+            path.append(start_node) 
+            path.reverse()
+            print('path found:{}'.format(path)) 
+            return path
+        open_set.remove(n) 
+        closed_set.add(n)
+    print('no path exist') 
+    return None
+
+def get_neighbors(v): 
+    if v in graph_nodes:
+        return graph_nodes[v] 
+    else:
+        return None 
+
+def h(n):
+    hdist={
+    'A': 10,'B': 8,'C': 5,'D': 7,'E': 3,
+    'F': 6,'G': 5,'H': 3,'I': 1,'J': 0
+    }
+    return hdist[n] 
+
+graph_nodes={
+    'A': [('B', 6), ('F', 3)],
+    'B': [('C', 3), ('D', 2)],
+    'C': [('D', 1), ('E', 5)],
+    'D': [('C', 1), ('E', 8)],
+    'E': [('I', 5), ('J', 5)],
+    'F': [('G', 1),('H', 7)] , 
+    'G': [('I', 3)],
+    'H': [('I', 2)],
+    'I': [('E', 5), ('J', 3)],
+}
+
+astaralgo('A','J')
+
+
+2.class Graph:
+    def __init__(self, graph, H, startNode):
+        self.graph = graph 
+        self.H = H
+        self.start = startNode 
+        self.parent = {} 
+        self.status = {} 
+        self.soultionGraph = {}
+
+    def applyAOStar(self):
+        self.aoStar(self.start, False)
+
+    def getNeighbors(self, v):
+        return self.graph.get(v, '')
+
+    def getStatus(self, v):
+        return self.status.get(v, 0)
+
+    def setStatus(self, v, val):
+        self.status[v] = val
+
+    def getHeuristicNodeValue(self, n):
+        return self.H.get(n)
+
+    def setHeuristicNodeValue(self, n, val):
+        self.H[n] = val
+
+    def printSolution(self):
+        print('For Soltuion Graph, Traverse the graph from the start Node: ',self.start) 
+        print('*' * 58)
+        print(self.soultionGraph) 
+        print('*' * 58)
+
+    def computeMinCostChildNodes(self, v): 
+        minCost = float('inf')
+        costToChildNodeListDist = {}
+        for nodeInfoTupleList in self.getNeighbors(v):
+            cost = 0 
+            nodeList = []
+            for c, weight in nodeInfoTupleList:
+                cost = cost + self.getHeuristicNodeValue(c) + weight 
+                nodeList.append(c)
+            if cost < minCost:
+                minCost = cost 
+                costToChildNodeListDist[minCost] = nodeList
+        return minCost, costToChildNodeListDist[minCost] 
+
+    def aoStar(self, v, backTracking):
+        print('Heuristic Values: ',self.H)
+        print('SoultionGraph: ',self.soultionGraph) 
+        print('Processing Node: ', v)
+        print('-' * 58)
+
+        if self.getStatus(v) >= 0:
+            minCost, childNodeList = self.computeMinCostChildNodes(v) 
+            self.setHeuristicNodeValue(v, minCost)
+            self.setStatus(v, len(childNodeList)) 
+
+            solved = True
+            for childNode in childNodeList: 
+                self.parent[childNode] = v
+                if self.getStatus(childNode) != -1:
+                    solved = False
+
+            if solved == True:
+                self.setStatus(v, -1) 
+                self.soultionGraph[v] = childNodeList
+                if v != self.start: 
+                    self.aoStar(self.parent[v], True)
+
+            if backTracking == False:
+                for childNode in childNodeList: 
+                    self.setStatus(childNode, 0) 
+                    self.aoStar(childNode, False)
+
+h1 = {'A': 1, 'B': 6, 'C': 12, 'D': 10, 'E': 4, 'F': 4, 'G': 5, 'H': 7}
+
+graph1 = {
+    'A': [[('B', 1), ('C', 1)], [('D', 1)]],
+    'B': [[('G', 1)], [('H', 1)]],
+    'D': [[('E', 1), ('F', 1)]]
+}
+
+G1=Graph(graph1, h1, 'A') 
+G1.applyAOStar() 
+G1.printSolution()
+
+3.import numpy as np 
+import pandas as pd
+import matplotlib.pyplot as plt 
+import seaborn as sns
+from sklearn.datasets import load_iris 
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+
+iris = load_iris()
+X = iris.data 
+y = iris.target 
+target_names = iris.target_names 
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_scaled)
+
+df_pca = pd.DataFrame(X_pca, columns=['PC1','PC2'])
+df_pca['target'] = y
+
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x=df_pca['PC1'], y=df_pca['PC2'], hue=df_pca['target'], palette='viridis')
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2') 
+plt.title('PCA on Iris Dataset (4D → 2D)')
+plt.legend(labels=target_names) 
+plt.show()
+
+4.import pandas as pd
+
+def find_s_algorithm(training_data):
+    hypothesis = None
+    for index, row in training_data.iterrows():
+        if row['PlayTennis'] == 'Yes':
+            instance = row[:-1].values
+            if hypothesis is None:
+                hypothesis = instance.copy()
+            else:
+                for i in range(len(hypothesis)):
+                    if hypothesis[i] != instance[i]:
+                        hypothesis[i] = '?'
+    return hypothesis
+
+df = pd.read_csv('playtennis.csv')
+df.columns = ['Outlook', 'Temperature', 'Humidity', 'Wind', 'PlayTennis']
+
+final_hypothesis = find_s_algorithm(df)
+
+print("Final Hypothesis:", final_hypothesis)
+
+5.import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.neighbors import KNeighborsClassifier
+
+np.random.seed(42)
+x = np.random.rand(100, 1)
+
+y = np.array(['Class1' if xi <= 0.5 else 'Class2' for xi in x[:50]])
+
+k_values = [1, 2, 3, 4, 5, 20, 30]
+
+for k in k_values:
+    knn = KNeighborsClassifier(n_neighbors=k)
+    knn.fit(x[:50], y)
+    y_pred = knn.predict(x[50:])
+
+    print(f"\nResults for k = {k}:")
+    for i, label in enumerate(y_pred, start=51):
+        print(f"x{i} = {x[i-1][0]:.3f} → Classified as {label}")
+
+plt.figure(figsize=(8, 5))
+plt.scatter(x[:50], np.zeros(50), c=['blue' if yi == 'Class1' else 'red' for yi in y], label="Labeled Data")
+plt.scatter(x[50:], np.zeros(50), c='black', marker='x', label="Unlabeled Data")
+plt.xlabel("x values")
+plt.ylabel("Classification")
+plt.title("KNN Classification of Random Data Points")
+plt.legend()
+plt.show()
+
+6.import pandas as pd
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import metrics
+from sklearn.tree import plot_tree
+import matplotlib.pyplot as plt
+
+
+data = load_breast_cancer()
+X = data.data
+y = data.target
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+
+clf = DecisionTreeClassifier()
+clf = clf.fit(X_train, y_train)
+
+y_pred = clf.predict(X_test)
+
+print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
+
+sample = X_test[0].reshape(1, -1)
+print("Prediction for new sample:", clf.predict(sample))
+
+plt.figure(figsize=(20,10))
+plot_tree(clf, filled=True, feature_names=data.feature_names, class_names=data.target_names)
+plt.show()
+
+7.import numpy as np
+from sklearn.datasets import fetch_olivetti_faces
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import accuracy_score
+
+data = fetch_olivetti_faces()
+X = data.data
+y = data.target
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+model = GaussianNB()
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+print("Accuracy:", accuracy_score(y_test, y_pred))
+
+7b.
+from sklearn.datasets import load_digits
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import accuracy_score
+
+data = load_digits()
+X = data.data
+y = data.target
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+model = GaussianNB()
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+
+print("Accuracy:", accuracy_score(y_test, y_pred))
+
+8.import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_breast_cancer
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
+
+# Load dataset
+data = load_breast_cancer()
+X = data.data
+
+# Step 1: Standardize data
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# Step 2: Apply PCA (2D)
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_scaled)
+
+# Step 3: Apply KMeans
+kmeans = KMeans(n_clusters=2, random_state=42)
+labels = kmeans.fit_predict(X_pca)
+
+# Step 4: Get centroids
+centroids = kmeans.cluster_centers_
+
+# Step 5: Plot
+plt.figure(figsize=(8,6))
+
+# Cluster 1 (Malignant)
+plt.scatter(X_pca[labels==0,0], X_pca[labels==0,1], c='red', label='Cluster 1 (Malignant)')
+
+# Cluster 2 (Benign)
+plt.scatter(X_pca[labels==1,0], X_pca[labels==1,1], c='blue', label='Cluster 2 (Benign)')
+
+# Centroids
+plt.scatter(centroids[:,0], centroids[:,1], c='yellow', marker='X', s=200, label='Centroids')
+
+plt.xlabel("Principal Component 1")
+plt.ylabel("Principal Component 2")
+plt.title("K-means Clustering on Breast Cancer Dataset (PCA)")
+plt.legend()
+plt.show()
+
+9.import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate dataset
+np.random.seed(0)
+X = np.linspace(-3, 3, 100)
+y = np.sin(X) + np.random.normal(0, 0.1, 100)
+
+# Add bias term
+X_mat = np.vstack((np.ones(len(X)), X)).T
+
+# LWLR function
+def lwlr(x, X, y, tau):
+    m = X.shape[0]
+    weights = np.eye(m)
+
+    for i in range(m):
+        diff = x - X[i]
+        weights[i, i] = np.exp(- (diff @ diff.T) / (2 * tau**2))
+
+    theta = np.linalg.pinv(X.T @ weights @ X) @ X.T @ weights @ y
+    return x @ theta
+
+# Tau values
+taus = [0.1, 0.3, 1.0]
+
+plt.figure(figsize=(8,6))
+
+# Plot original data
+plt.scatter(X, y, c='black', label='Original Data')
+
+# Plot curves for each tau
+for tau in taus:
+    y_pred = np.array([lwlr(X_mat[i], X_mat, y, tau) for i in range(len(X))])
+    plt.plot(X, y_pred, label=f"Tau = {tau}")
+
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.title("Locally Weighted Regression with Different Tau Values")
+plt.legend()
+plt.show()
+
+10. import tensorflow as tf
+from tensorflow.keras import layers, models
+from tensorflow.keras.datasets import mnist
+
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
+
+X_train = X_train.reshape(-1,28,28,1) / 255.0
+X_test = X_test.reshape(-1,28,28,1) / 255.0
+
+model = models.Sequential([
+    layers.Conv2D(32, (3,3), activation='relu', input_shape=(28,28,1)),
+    layers.Conv2D(64, (3,3), activation='relu'),
+    layers.Flatten(),
+    layers.Dense(128, activation='relu'),
+    layers.Dense(10, activation='softmax')
+])
+
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+history = model.fit(X_train, y_train, epochs=5, validation_data=(X_test, y_test))
+
+test_loss, test_acc = model.evaluate(X_test, y_test)
+
+print("Test Accuracy:", test_acc)
