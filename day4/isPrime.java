@@ -5,7 +5,19 @@
 import java.util.Scanner;
 
 public class isPrime {
-    public static void main(String[] args) {
+    public static boolean isPrime(int n){
+        int count = 0;
+        for(int i=1;i<n/2;i++){
+            if(n%i==0){
+                count++;
+            }
+        }
+
+        if(count>=2 || n<=0) return false;
+        else return true;
+    }
+
+    public static void main2(String[] args) {
         Scanner in = new Scanner(System.in);
         int n;
         boolean isPrime = true;
@@ -26,5 +38,10 @@ public class isPrime {
                 System.out.print("isPrime:" + isPrime);
         } else
             System.out.println("enter valid number");
+    }
+
+    public static void main(String[] args) {
+        int n = 15;
+        System.out.println(isPrime(n));
     }
 }
