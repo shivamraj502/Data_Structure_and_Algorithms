@@ -5,7 +5,20 @@
 
 import java.util.Scanner;
 public class IsPalindrome {
+    public static boolean isPal(String s){
+        if(s == "") return false;
+        String newS = "";
+        for(int i=0;i<s.length();i++){
+            newS += s.charAt(s.length()-i-1);
+        }
+        return s.equals(newS);
+    }
     public static void main(String[] args) {
+        String s = "ihi";
+        System.out.println(isPal(s));
+    }
+
+    public static void main2(String[] args) {
         Scanner in = new Scanner(System.in);
 
         System.out.println("Enter a string to check palindrome:");
