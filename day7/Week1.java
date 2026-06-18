@@ -8,7 +8,17 @@
 import java.util.Scanner;
 
 public class Week1 {
+    public static double avg(int [] arr){
+        double sum = 0;
+        for(int n : arr){sum += n;}
+        return sum/(arr.length);
+    }
     public static void main(String[] args) {
+        int [] arr = {1,2,3,4,92};
+        System.out.println(avg(arr));
+    }
+
+    public static void main2(String[] args) {
         Scanner in = new Scanner(System.in);
 
         System.out.println("enter array size:");
