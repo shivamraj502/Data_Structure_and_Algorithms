@@ -3,7 +3,13 @@
 import java.util.Scanner;
 
 public class Largest {
-    public static void main(String[] args) {
+    public static int find(int a, int b, int c){
+        if(a>b && a>c) return a;
+        else if(b>c) return b;
+        else return c;
+    }
+
+    public static void main2(String[] args) {
         Scanner in =new Scanner(System.in);
         int a,b,c;
         // int largest = a;
@@ -23,5 +29,12 @@ public class Largest {
         }else{
             System.out.println(c);
         }
+    }
+
+    public static void main(String[] args) {
+        int a=4;
+        int b=34;
+        int c=2;
+        System.out.println(find(a,b,c));
     }
 }
