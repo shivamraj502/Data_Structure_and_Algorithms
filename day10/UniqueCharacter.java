@@ -3,10 +3,33 @@
 // Problem: First Unique Character in a String – LeetCode 387
 // Goal: Use HashMap<Character,Integer>.
 
-// wrong code
+import java.util.HashMap;
 import java.util.Scanner;
 public class UniqueCharacter {
+    public static char unq(String s){
+        HashMap<Character,Integer> map = new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            if(map.containsKey(s.charAt(i))){
+                map.put(s.charAt(i),map.get(s.charAt(i))+1);
+            }
+            else{
+                map.put(s.charAt(i),1);
+            }
+        }
+
+        for(int i=0;i<s.length();i++){
+            if((map.get(s.charAt(i)))==1) return s.charAt(i);
+        }
+        return 0;
+    }
     public static void main(String[] args) {
+        String s = "heehi";
+        System.out.println(unq(s));
+    }
+
+
+    // wrong code
+    public static void main2(String[] args) {
         Scanner in = new Scanner(System.in);
 
         System.out.println("Enter a string");
