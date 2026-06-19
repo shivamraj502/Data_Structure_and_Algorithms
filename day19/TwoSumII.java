@@ -17,7 +17,33 @@
 
 import java.util.Scanner;
 public class TwoSumII {
+    public static int [] twoS(int [] arr, int t){
+        int left = 0;
+        int right = arr.length-1;
+        int sum;
+        int [] f = new int[2];
+
+        for(int i=0;i<arr.length;i++){
+            sum = arr[left] + arr[right];
+            if(sum == t){ 
+                f[0] = left;
+                f[1] = right;
+            }
+            else if(sum > t) right--;
+            else left++;
+        }return f;
+    }
     public static void main(String[] args) {
+        int [] arr = {1,2,3,44,55};
+        int [] res = twoS(arr, 45);
+        for(int i=0;i<2;i++){
+            System.out.print(res[i] + " ");
+        }
+    }
+
+
+
+    public static void main2(String[] args) {
         Scanner in = new Scanner(System.in);
         
         System.out.println("enter array size(n):");
