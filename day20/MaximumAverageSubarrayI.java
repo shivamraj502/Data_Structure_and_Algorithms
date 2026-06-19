@@ -10,7 +10,24 @@
 import java.util.Scanner;
 
 public class MaximumAverageSubarrayI {
-     public static void main(String[] args) {
+    public static double maxAvg(int [] arr, int k){
+        double avg = 0;
+        for(int i=0;i<=arr.length-k;i++){
+            double m = 0;
+            for(int j=i;j<i+k;j++){
+                m += arr[j];
+            }
+                double neWavg = m/k;
+                if(neWavg > avg) avg = neWavg;
+        }return avg;
+    }
+    public static void main(String[] args) {
+        int [] arr = {1,2,3,4};
+        System.out.println(maxAvg(arr,3));
+    }
+
+
+     public static void main2(String[] args) {
         Scanner in = new Scanner(System.in);
         double k;
         double sum=0;
