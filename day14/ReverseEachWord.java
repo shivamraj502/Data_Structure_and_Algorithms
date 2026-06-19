@@ -18,7 +18,7 @@ public class ReverseEachWord {
             }else{
                 str.append(temp.reverse());
                 str.append(" ");
-                temp.setLength(0);
+                temp.setLength(0);                   // clear/reset StringBuilder
             }
         }
         str.append(temp.reverse());
