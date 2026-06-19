@@ -6,7 +6,31 @@
 
 import java.util.Scanner;
 public class ReverseEachWord {
+    public static void revW(String s){
+        StringBuilder str = new StringBuilder();
+        StringBuilder temp = new StringBuilder();
+
+        s = s.trim();
+        for(int i=0;i<s.length();i++){
+            
+            if(s.charAt(i)!=' '){
+            temp.append(s.charAt(i));
+            }else{
+                str.append(temp.reverse());
+                str.append(" ");
+                temp.setLength(0);
+            }
+        }
+        str.append(temp.reverse());
+        System.out.println(str);
+    }
     public static void main(String[] args) {
+        String s = "hii bro hello";
+        revW(s);
+    }
+
+
+    public static void main2(String[] args) {
         Scanner in = new Scanner(System.in);
         
         System.out.print("enter string:");
@@ -28,3 +52,6 @@ public class ReverseEachWord {
         
     }
 }
+
+            //StringBuilder clear/reset note
+//Use temp.setLength(0) to empty StringBuilder
