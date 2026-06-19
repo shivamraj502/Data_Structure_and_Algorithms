@@ -3,10 +3,32 @@
 // Problem: Remove Duplicates from Sorted Array – LeetCode 26
 // Goal: Manipulate arrays efficiently.
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class RemoveDuplicates {
+    public static void remDup(int [] arr){
+        HashSet<Integer> set = new HashSet<>();
+        for(int i= 0;i<arr.length;i++){
+            set.add(arr[i]);
+        }
+        System.out.println(set);
+
+        //              mistake
+        // String s = set.toString(); 
+        // int [] arr2 = set.toArray();
+        // int [] newArr = new int[set.size()];
+        // for(int i=0;i<set.size();i++){
+        //     newArr[i]=arr2.charAt(i);
+        // }
+    }
     public static void main(String[] args) {
+        int [] arr = {1,1,2,3,3,4,5,6};
+        remDup(arr);
+    }
+
+
+    public static void main2(String[] args) {
         Scanner in = new Scanner(System.in);
         
         System.out.println("enter array size(n):");
