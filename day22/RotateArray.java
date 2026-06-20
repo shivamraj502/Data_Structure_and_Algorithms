@@ -7,7 +7,37 @@ Topic name: Array Rotation (Two-Pointer / Reversal Technique) */
 
 import java.util.Scanner;
 public class RotateArray {
+    public static int [] rot(int arr[],int k){
+
+        for(int i=0;i<arr.length/2;i++){
+            int temp = arr[i];
+            arr[i] = arr[arr.length-i-1];
+            arr[arr.length-i-1] = temp;
+        }
+        for(int i=0;i<(arr.length -k)/2;i++){
+            int temp = arr[i];
+            arr[i] = arr[arr.length-k-i-1];
+            arr[arr.length-k-i-1] = temp;
+        }
+        for(int i=arr.length-k,j=0; i< arr.length-k+(k/2); i++,j++){
+            int temp = arr[i];
+            arr[i] = arr[arr.length-1-j];
+            arr[arr.length-1-j] = temp;
+        }        
+        return arr;
+    }
     public static void main(String[] args) {
+        int [] arr = {1,2,3,4,5};
+        int [] res = rot(arr, 3);
+
+        for(int i=0;i<res.length;i++){
+            System.out.print(res[i]+" ");
+        }System.out.println();
+    }
+
+
+
+    public static void main2(String[] args) {
         Scanner in = new Scanner(System.in);
 
         System.out.println("Enter array length: ");
