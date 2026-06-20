@@ -4,7 +4,78 @@
 
 import java.util.Scanner;
 public class ReinforceWeek3skills {
-    public static void main(String[] args) {
+    public static void main(String [] args){
+        Scanner in = new Scanner(System.in);
+        int [] arr = new int[5];
+
+        while(true){
+            System.out.println("1. Insert");
+            System.out.println("2. Delete");
+            System.out.println("3. search");
+            System.out.println("4. display");
+            System.out.println("5. exit");
+
+            System.out.println("enter choice: ");
+            int ch = in.nextInt();
+
+            switch (ch) {
+                case 1:
+                    System.out.println("enter value to insert: ");
+                    int v = in.nextInt();
+                    insert2(arr, v);
+                    break;
+                case 2:
+                    System.out.println("enter value to delete: ");
+                    int v2 = in.nextInt();
+                    delete2(arr, v2);
+                    break;
+                case 3:
+                    System.out.println("enter value to search: ");
+                    int v3 = in.nextInt();
+                    System.out.println(search2(arr,v3));
+                    break;
+                case 4:
+                    display2(arr);
+                    break;
+                case 5:
+                    exit2();
+                    return;        
+                default:
+                    break;
+            }
+        }
+    }
+    public static void insert2(int [] arr , int v){
+        for(int i=0;i<arr.length-1;i++){ 
+            arr[arr.length-1-i] = arr[arr.length-2-i];  // 4>3,3>2,2>1,1>0 i>0 1 2 3
+        }arr[0]=v;
+    }
+    public static void delete2(int [] arr , int v){
+        for(int i=0;i<arr.length;i++){ 
+            if(arr[i] == v){
+                for(int j = i;j<arr.length-1;j++){
+                    arr[j] = arr[j+1];
+                }break;
+            }
+        }
+    }
+    public static boolean search2(int arr[],int t){
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==t){ return true;}
+        }return false;
+    }
+    public static void display2(int [] arr){
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }System.out.println();
+    }
+    public static void exit2(){
+        System.out.println("returning!");
+        return;
+    }
+
+
+    public static void main2(String[] args) {
         Scanner in = new Scanner(System.in);
 
         System.out.println("Enter array length: ");
