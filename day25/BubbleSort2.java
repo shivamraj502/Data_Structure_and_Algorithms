@@ -12,7 +12,27 @@
 import java.util.Arrays;
 import java.util.Scanner;
 public class BubbleSort2 { 
-    public static void main(String[] args){
+    public static void bubb(int [] arr){
+        for(int i=0;i<arr.length-1;i++){
+            for(int j=0;j<arr.length-1;j++){
+                if(arr[j+1]<arr[j]){
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }System.out.println();
+    }
+    public static void main(String[] args) {
+        int arr[] = {1,3,2,5,55,4};
+        bubb(arr);
+    }
+
+
+    public static void main2(String[] args){
       Scanner in = new Scanner(System.in);
         System.out.println("Enter array length: ");
         int n = in.nextInt();
