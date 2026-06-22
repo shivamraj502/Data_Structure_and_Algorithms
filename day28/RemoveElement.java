@@ -17,9 +17,36 @@ Output: 2 (because 2, 2 are left)
  */
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 public class RemoveElement {
+    public static int rem(int [] nums, int val){
+        int count =0;int count2 =0;
+        int [] narr = new int[nums.length];
+
+        for(int i=0;i<nums.length;i++){
+            if(nums[i] != val){ 
+                narr[count] = nums[i];
+                count++;
+            }else{
+                narr[nums.length-1-count2]=val;
+                count2++;
+            }
+        }System.out.println(Arrays.toString(narr));
+
+        for(int i=0;i<count;i++){
+            nums[i] = narr[i];}
+
+        return count;
+    }
     public static void main(String[] args) {
+        int [] arr = {3,2,2,3,2,2,1};
+        int val =3;
+        System.out.println(rem(arr, val));
+    }
+
+
+    public static void main2(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter array length: ");
         int n = in.nextInt();
