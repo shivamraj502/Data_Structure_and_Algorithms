@@ -28,7 +28,7 @@ public class RemoveElement {
             if(nums[i] != val){ 
                 narr[count] = nums[i];
                 count++;
-            }else{
+            }else{          // no need of else condition
                 narr[nums.length-1-count2]=val;
                 count2++;
             }
