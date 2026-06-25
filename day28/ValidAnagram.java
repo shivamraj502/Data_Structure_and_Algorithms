@@ -12,7 +12,41 @@ Valid Anagram – LeetCode 242
 
 import java.util.*;
 public class ValidAnagram {
-     public static void main(String[] args) {
+    public static boolean isAna(String s, String t){
+        Map<Character,Integer> maps = new HashMap<>();
+        Map<Character,Integer> mapt = new HashMap<>();
+
+    if(s.length() == t.length()){
+        for(int i=0;i<s.length();i++){
+            if(maps.get(s.charAt(i)) == null){
+                maps.put(s.charAt(i), 1);
+            }else{
+                maps.put(s.charAt(i),maps.get(s.charAt(i))+1);
+            }
+        }
+        for(int i=0;i<t.length();i++){
+            if(mapt.get(t.charAt(i)) == null){
+                mapt.put(t.charAt(i), 1);
+            }else{
+                mapt.put(t.charAt(i),mapt.get(t.charAt(i))+1);
+            }
+        }System.out.println(maps);System.out.println(mapt);
+
+        for(int i=0;i<s.length();i++){
+            if(maps.get(s.charAt(i)) != mapt.get(s.charAt(i))){  //better: !maps.get(s.charAt(i)).equals(mapt.get(s.charAt(i)))
+                return false;
+            }
+        }return true;       // return maps.equals(mapt);
+    
+    }else return false;
+    }
+    public static void main(String [] args){
+        String s = "heyybrol";
+        String t = "hyeyrobb";
+        System.out.println(isAna(s, t));
+    }
+
+     public static void main2(String[] args) {
         // Scanner in = new Scanner(System.in);
         // System.out.println("Enter array length: ");
         // int n = in.nextInt();
