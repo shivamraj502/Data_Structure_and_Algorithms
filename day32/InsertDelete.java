@@ -4,7 +4,23 @@
 // Goal: Learn pointer manipulation.
 
 // package day32;
+import java.util.*;
 public class InsertDelete {
+    public static void main(String[] args) {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.addFirst(1);System.out.println(list);
+        list.addLast(9);System.out.println(list);
+        list.add(1,4);System.out.println(list);
+        list.add(2,44);System.out.println(list);
+        list.removeFirst();System.out.println(list);
+        list.removeLast();System.out.println(list);
+        list.addFirst(1);System.out.println(list);
+        list.addFirst(1);System.out.println(list);
+        list.removeFirstOccurrence(1);System.out.println(list);
+        list.addLast(1);System.out.println(list);
+    }
+
+
     static class Node{
         int data;
         Node next;
@@ -83,7 +99,7 @@ public class InsertDelete {
         return head;
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         InsertDelete list = new InsertDelete();
         Node head = new Node(1);
         Node second = new Node(11);
