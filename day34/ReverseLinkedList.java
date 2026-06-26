@@ -3,8 +3,22 @@
 // Problem: Reverse Linked List – LeetCode 206
 // Goal: Build confidence in pointer re-linking.
 
-package day34;
+// package day34;
+import java.util.LinkedList;
 public class ReverseLinkedList {
+    public static void main(String[] args) {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        System.out.println("Original:"+list);
+        list = list.reversed();
+        System.out.println("Reversed:"+list);
+    }
+
+
     static class Node {
         int data;
         Node next;
@@ -30,7 +44,7 @@ public class ReverseLinkedList {
         return pre;
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         Node head = new Node(1);
         Node second = new Node(11);
         Node tail = new Node(13);
