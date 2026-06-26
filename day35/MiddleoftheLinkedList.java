@@ -6,7 +6,44 @@
 // Goal: Master two-pointer technique.
 
 // package day35;
+
+import java.util.LinkedList;
+
 public class MiddleoftheLinkedList{
+    public static void main3(String[] args) {
+        
+        // ListNode slow = Head;
+        // ListNode fast = Head;
+        
+        // while(fast != null && fast.next != null){ // running
+        //     slow = slow.next;
+        //     fast = fast.next.next;
+        // }
+
+        // return slow;
+    }
+
+
+    public static void main(String[] args) {
+        //leetcode 876
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        Object[] arr = list.toArray();
+
+        int l = list.size();
+        if(true){
+            list.clear();
+            for(int i=l/2;i<l;i++){
+                list.add((Integer) arr[i]);
+            }
+        }System.out.println(list);
+    }
+
+
     static class Node{
         int data;
         Node next;
@@ -36,7 +73,7 @@ public class MiddleoftheLinkedList{
         }return temp2;           
     }
     
-    public static void main(String[] args){
+    public static void main2(String[] args){
         Node head = new Node(1);
         Node second = new Node(2);
         Node third = new Node(3);

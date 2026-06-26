@@ -6,7 +6,12 @@
 // Goal: Master two-pointer technique.
 
 // package day35;
+
+import java.util.LinkedList;
 public class LinkedListCycle {
+    
+
+
     static class Node{
         int data;
         Node next;
@@ -23,7 +28,7 @@ public class LinkedListCycle {
             
         }return false;
     }
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         Node head = new Node(1);
         Node second = new Node(2);
         Node third = new Node(3);
