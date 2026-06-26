@@ -10,6 +10,21 @@
 import java.util.LinkedList;
 public class LinkedListCycle {
     
+    /*
+     * how is this possible to come out of while loop in this code,
+    public class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        
+        while(fast != null && fast.next != null){ // running
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){return true;}
+        }return false;
+    }
+    }
+     */   
 
 
     static class Node{
@@ -46,3 +61,40 @@ public class LinkedListCycle {
         System.out.println("isCycle? "+isCycle);
     }
 }
+
+
+                                        // Mistakes
+/* 
+public class Solution {
+    public static boolean hasCycle(ListNode head) {
+        ListNode<Integer> list = new ListNode<>();
+        int count = 0;
+        boolean bool = true;
+        int s = list.size();
+
+        while(head != null){
+            count++;
+            head = head.next;
+            if(count > s){
+                bool = false;
+                return bool;
+            }
+        }return bool;
+    }
+}                                        */
+
+
+/*  
+how is this possible to come out of while loop in this code,
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+        
+        while(fast != null && fast.next != null){ // running
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){return true;}
+        }return false;
+    }
+}               */

@@ -6,14 +6,12 @@
 // Goal: Master two-pointer technique.
 
 // package day35;
-
 import java.util.LinkedList;
-
 public class MiddleoftheLinkedList{
     public static void main3(String[] args) {
         
-        // ListNode slow = Head;
-        // ListNode fast = Head;
+        // ListNode slow = head;
+        // ListNode fast = head;
         
         // while(fast != null && fast.next != null){ // running
         //     slow = slow.next;
