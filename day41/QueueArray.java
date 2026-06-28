@@ -3,7 +3,21 @@
 // Problem: Queue Implementation – GFG
 // Goal: Learn queue mechanics.
 
+import java.util.*;
 public class QueueArray{
+    public static void main(String [] args){
+        Queue<Integer> q = new LinkedList<>();
+        q.add(5);System.out.println(q);
+        q.add(15);System.out.println(q);
+        q.add(25);System.out.println(q);
+        q.poll();System.out.println(q);
+        System.out.println(q.isEmpty());
+        System.out.println(q.size());
+        System.out.println(q.peek());
+    }
+
+
+
     static int arr[] = new int[5];
     static int front=-1;
     static int rear=-1;
@@ -53,7 +67,7 @@ public class QueueArray{
         else System.out.println("Peek: "+arr[front]);
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         Enqueue(5);
         Enqueue(4);
         Enqueue(3);
@@ -79,64 +93,6 @@ public class QueueArray{
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -213,3 +169,34 @@ public class QueueArray {
 }
 
 */
+
+
+                            // Mistakes
+/*
+//Queue mistakes in Java
+
+//Queue<> q = new Queue<>() ❌
+
+//Must specify datatype
+//Queue<Integer> q
+
+//Queue is interface, object cannot be created directly
+//new Queue<>() ❌
+
+//Use implementation class
+//LinkedList / ArrayDeque / PriorityQueue
+
+//Queue<Integer> q = new LinkedList<>()
+
+//enqueue() method does not exist in Java Queue
+//Use add() or offer()
+
+//dequeue() method does not exist in Java Queue
+//Use remove() or poll()
+
+//dequeue(value) ❌
+//Queue removes front element only
+
+//enqueue → add/offer
+//dequeue → remove/poll
+//peek → peek()          */
