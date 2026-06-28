@@ -8,6 +8,36 @@ Goal: Understand real-world stack use cases.
 // package day40;
 import java.util.*;
 public class ApplicationsofStack {
+    public static boolean isVal(String s){
+        Stack<Character> st = new Stack<>();
+        boolean bool = true;
+        int top = 0;
+
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            if(ch == '(' || ch == '[' || ch == '{'){
+                top++;
+                if(ch == '(') st.push(')');
+                if(ch == '[') st.push(']');
+                if(ch == '{') st.push('}');
+            }else if(ch == ')' || ch == ']' || ch == '}'){
+                if(top>0){top--;}
+                else{return false;}
+                
+                if(ch == st.pop()) {bool = true;}
+                else {bool = false; return bool;}
+            }else return false;
+        }
+        if(top>0){return false;}
+        else{return bool;}
+
+    }
+    public static void main(String[] args) {
+        String s = "(([]]]))";
+        System.out.println("is valid? "+isVal(s));
+    }
+
+
     public static boolean isValid(String s){
         Stack<Character> st=new Stack<>();
         for(char ch:s.toCharArray()){
@@ -22,8 +52,26 @@ public class ApplicationsofStack {
             }
         }return st.isEmpty();
     }
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         String s = "({[})";
         System.out.println(isValid(s));
     }
 }
+
+                        //Mistakes
+/**
+        Stack<Character> st = new Stack<>();
+        boolean bool = true;
+
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            if(ch == '(' || ch == '[' || ch == '{'){
+                if(ch == '(') st.push(')');
+                if(ch == '[') st.push(']');
+                if(ch == '{') st.push('}');
+            }else if(ch == ')' || ch == ']' || ch == '}'){
+                if(ch == st.pop()) bool = true;
+                else {bool = false; return bool;}
+            }else return false;
+        }return bool;
+ */
