@@ -46,3 +46,9 @@ public class ImplementStackusingArray {
         }
     }
 }
+
+
+                                // Mistakes:
+/**
+ * i forgot top is a stack property
+ */
