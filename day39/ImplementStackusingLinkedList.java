@@ -45,15 +45,8 @@ public class ImplementStackusingLinkedList{
     }
 
     public static void main(String[] args) {
-
-        head = new Node(1);
-        Node b = new Node(2);
-        Node c = new Node(3);
-        Node tail = new Node(4);
-
-        head.next=b;
-        b.next=c;
-        c.next=tail;
+        
+        head = null;
 
         Push(5);
         Push(6);
