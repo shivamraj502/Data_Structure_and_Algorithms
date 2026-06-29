@@ -2,7 +2,7 @@ public class Armstrong {
     public static int isArm(int n,int z){
         int total = 0;
 
-        for(int k=n;k<z;k++){
+        for(int k=n;k<=z;k++){
         int count =(""+n).length();
         
         // int m = n;
@@ -16,7 +16,7 @@ public class Armstrong {
         // int length = Integer.toString(n).length();
         // System.out.println("length: "+length);
 
-        int p = n;
+        int p = k;
         int sum = 0;
         while(p>0){
             int rem = p%10;
@@ -26,14 +26,15 @@ public class Armstrong {
             for(int j=0;j<count;j++){
                 product *= rem;
             }sum += product;
-            
-        }if(sum == n){ total++;}
+
+        }if(sum == k){ System.out.println(sum); total++;}
         
-        }return total;
+        // return sum == n; //for is armstrong
+        }return total;      //for range armstrong
     }
 
     public static void main(String[] args) {
-        int a =370; //370,371,153
+        int a =153; //370,371,153
         int b =372;
         System.out.println(isArm(a,b)+"\n");
     }
