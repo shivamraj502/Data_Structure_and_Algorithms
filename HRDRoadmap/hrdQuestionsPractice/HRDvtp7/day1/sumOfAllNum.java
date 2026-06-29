@@ -1,6 +1,6 @@
 public class sumOfAllNum {
     public static void Sum(int a, int b){
-        System.out.println((b*(b+1)/2) -(a*(a+1)/2));
+        System.out.println((b*(b+1)/2) -((a-1)*((a-1)+1)/2));
         
         //int sum=0;
         // for(int i=a;i<=b;i++){
