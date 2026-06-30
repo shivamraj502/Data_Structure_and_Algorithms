@@ -1,4 +1,4 @@
-import java.util.Arrays;
+//  "2d array addition"
 public class TwoDArray {
     public static void main(String[] args) {
         int [][] arr1 ={
