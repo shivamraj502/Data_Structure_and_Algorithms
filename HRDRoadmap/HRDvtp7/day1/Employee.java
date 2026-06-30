@@ -1,12 +1,12 @@
 // package day1b;
 public class Employee {
-    static String fullName;
-    static String empId;
+    String fullName;
+    String empId;
     Employee(String fullName,String empId){
         this.fullName=fullName;
         this.empId=empId;
     }
-    public static void display(){
+    public void display(){
         System.out.println("fullName: "+fullName+" ,empId: "+empId);
     }
     public static void main(String[] args) {
