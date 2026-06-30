@@ -4,7 +4,9 @@ public class StringRev {
         String st = "";
         for(int i=0;i<s.length();i++){
             st += s.charAt(s.length()-i-1);
-        }return st;
+        }
+        s=st;
+        return s;
     }
 
     public static void main(String[] args) {
