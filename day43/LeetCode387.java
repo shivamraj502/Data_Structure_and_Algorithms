@@ -5,7 +5,27 @@ Problem: First Unique Character – LeetCode 387
 Goal: Use queue for problem-solving.
  */
 
+import java.util.HashMap;
 public class LeetCode387 {
+    public static int firstUnique(String s){
+        HashMap<Character,Integer> map = new HashMap<>();
+
+        for(int i=0;i<s.length();i++){
+            if(map.get((s.charAt(i))) == null){     //Mistake: not 0 its null 
+                map.put(s.charAt(i), 1);
+            }else{
+                map.put(s.charAt(i), map.get(s.charAt(i))+1);
+            }
+        }
+
+        for(int i=0;i<s.length();i++){
+            if(map.get(s.charAt(i)) == 1){
+                return i;
+            }
+        }return -1;
+    }
+
+
     public static int firstUniqChar(String s) {
         // if(s.length()==1){return 0;}
         for(int i=0;i<s.length();i++){
@@ -19,9 +39,9 @@ public class LeetCode387 {
         return -1;
     }
     public static void main(String[] args) {
-        String s = "lovelevetcotddecez";
+        String s = "lovelo";
         System.out.println("s: "+s);
-        System.out.println(firstUniqChar(s));
+        System.out.println(firstUnique(s));
     }
 }
 
