@@ -1,7 +1,7 @@
 public class IsPrime {
     
-    public static void isPrimeRange2(int st,int end){
-        int [] prime = new int[end+1]; // why n+1
+    public static void isPrimeRange2(int st,int end){       //sieve of erathosnese
+        int [] prime = new int[end+1]; // why n+1 :> to ignore prime[0]
 
         for(int i= 2;i<=end;i++){ 
             prime[i]=1;
@@ -45,8 +45,8 @@ public class IsPrime {
 
 
 // find all primes from 1 to m :> sieve of erathosnese
-
-
+// why O(n) = n(log(log(n))) :> for summation of n/2 + n/3 + n/4 + ... = n(1/2 + 1/3 + 1/5 + ...)
+// n/2 mean 
                             // Mistakes
 /*
 here : 
