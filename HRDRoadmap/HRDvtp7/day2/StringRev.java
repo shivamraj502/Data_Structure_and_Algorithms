@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class StringRev {
     public static String rev(String s){
         String st = "";
-        for(int i=0;i<s.length();i++){
+        for(int i=0;i<s.length();i++){      // can also do it using two pointer technique
             st += s.charAt(s.length()-i-1);
         }
         s=st;
