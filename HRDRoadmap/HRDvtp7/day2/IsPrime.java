@@ -1,20 +1,25 @@
 public class IsPrime {
     
     public static void isPrimeRange2(int st,int end){
-        int [] prime = new int[st+end+1]; // why n+1
+        int [] prime = new int[end+1]; // why n+1
 
-        for(int i= st-1;i<end;i++){ 
+        for(int i= 2;i<=end;i++){ 
             prime[i]=1;
         }
+        
+        // print 
+        // for(int i= 0;i<=end;i++){ 
+        //     System.out.print(prime[i]+" "+i+" ");
+        // }System.out.println();
 
-        for(int i=st;i*i<=end;i++){
-            if(prime[i]==1){ 
+        for(int i=2;i*i<end;i++){
+            if(prime[i]==1){
             for(int j=i*i;j<=end;j+=i){
                 prime[j]=0;
             }}
-        }
+        }System.out.println();
 
-        for(int i=st;i<end;i++){
+        for(int i=st;i<=end;i++){
             if(prime[i]==1) System.out.println(i);
         }
     }
@@ -35,7 +40,7 @@ public class IsPrime {
 
     
     public static void main(String[] args) {
-        int st = 2; int end = 20;
+        int st = 5; int end = 23;
         isPrimeRange2(st,end);
     }
 }
