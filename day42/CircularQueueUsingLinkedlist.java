@@ -6,6 +6,34 @@ Goal: Handle overflow efficiently.
  */
 
 public class CircularQueueUsingLinkedlist {
+
+    static int Size = 0;
+    public static int [] Add(int [] arr,int Size,int n){
+        int [] newArr = new int[Size++];
+        newArr[Size]=n;
+
+        return newArr;
+    }
+    public static void display(int [] arr,int Size){
+        
+    }
+
+    
+    public static void main(String[] args) {
+        int [] arr = new int[10];
+        Add(arr,Size,1);
+        System.out.println(arr);
+        // Poll(1);
+        // System.out.println(arr);
+        // Peek(1);
+        // System.out.println(arr);
+        // IsEmpty(1);
+        // System.out.println(arr);
+        
+    }
+
+
+
     static int size = 0;
     static Node head;
     static Node tail;           // Added tail pointer
@@ -91,7 +119,7 @@ public class CircularQueueUsingLinkedlist {
         System.out.println();
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         System.out.println("Enqueue:");
         Enqueue(5);
         Enqueue(4);
