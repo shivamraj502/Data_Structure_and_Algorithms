@@ -9,9 +9,10 @@ public class IsPrime {
         
         for(int i=2;i*i<=end;i++){       // here dont start from start because it will not remove multiple of 2 to start
             if(prime[i]==1){            //and, never end with i*i <= end because it is not having any multiple so no effect
-            for(int j=i*i;j<=end;j+=i){
+                for(int j=i*i;j<=end;j+=i){
                 prime[j]=0;
-            }}
+                }
+            }
         }System.out.println();
 
         for(int i=st;i<=end;i++){
