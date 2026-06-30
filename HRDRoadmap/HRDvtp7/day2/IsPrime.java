@@ -7,13 +7,8 @@ public class IsPrime {
             prime[i]=1;
         }
         
-        // print 
-        // for(int i= 0;i<=end;i++){ 
-        //     System.out.print(prime[i]+" "+i+" ");
-        // }System.out.println();
-
-        for(int i=2;i*i<end;i++){
-            if(prime[i]==1){
+        for(int i=2;i*i<=end;i++){       // here dont start from start because it will not remove multiple of 2 to start
+            if(prime[i]==1){            //and, never end with i*i <= end because it is not having any multiple so no effect
             for(int j=i*i;j<=end;j+=i){
                 prime[j]=0;
             }}
@@ -23,6 +18,8 @@ public class IsPrime {
             if(prime[i]==1) System.out.println(i);
         }
     }
+
+
     public static void isPrimeRange(int st, int ed){
 
         for(int i= st;i<=ed;i++){ 
@@ -40,10 +37,32 @@ public class IsPrime {
 
     
     public static void main(String[] args) {
-        int st = 5; int end = 23;
+        int st = 5; int end = 25;
         isPrimeRange2(st,end);
     }
 }
 
 
 // find all primes from 1 to m :> sieve of erathosnese
+
+
+                            // Mistakes
+/*
+here : 
+for(int i= 2;i<=end;i++){ 
+            prime[i]=1;
+        }                   
+                :> i was started from st which was ignoring multiple of 2 to start for elimition
+
+here : 
+for(int i=st;i<=end;i++){
+            if(prime[i]==1) System.out.println(i);
+        }
+                :> i am printing from index st to end ,and ignoring from 2 to start
+
+here :
+// print 
+        // for(int i= 0;i<=end;i++){ 
+        //     System.out.print(prime[i]+" "+i+" ");
+        // }System.out.println();
+ */
