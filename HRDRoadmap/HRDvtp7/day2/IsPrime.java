@@ -65,4 +65,5 @@ here :
         // for(int i= 0;i<=end;i++){ 
         //     System.out.print(prime[i]+" "+i+" ");
         // }System.out.println();
+                :> it is to check steps are working or not
  */
