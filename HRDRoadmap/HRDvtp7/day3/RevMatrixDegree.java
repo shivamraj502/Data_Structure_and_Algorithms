@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class RevMatrix90 {
+public class RevMatrixDegree {
     public static int[][] revMatrix(int[][] arr1){
         int [][] res = new int[arr1.length][arr1.length];
         
@@ -53,3 +53,5 @@ public class RevMatrix90 {
         }else System.out.println("invalid degree");
     }
 }
+
+//Pending solution for rotation of matrix to n*90 degree.
