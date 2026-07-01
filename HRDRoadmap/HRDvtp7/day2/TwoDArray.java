@@ -2,8 +2,9 @@
 public class TwoDArray {
     public static void main(String[] args) {
         int [][] arr1 ={
-            {1,2,3},
-            {4,5,6}
+            {1,2},
+            {4,5},
+            {6,7}
         };
         
         int [][] arr2 ={
@@ -11,20 +12,29 @@ public class TwoDArray {
             {4,5,6}
         };
 
-        if(arr1.length ==arr2.length){
-            for(int i=0;i<arr1.length;i++){
-                for(int j=0;j<arr1.length;j++){
-                    arr1[i][j] = arr1[i][j]+arr2[i][j];
+        int r1 = arr1.length;
+        int r2 = arr2.length;
+        int c1 = arr1[0].length;
+        int c2 = arr2[0].length;
+        int [][] res = new int[r1][c2];
+
+        if(c1 == r2){
+            for(int i=0;i<r1;i++){
+                for(int j=0;j<c2;j++){
+                    for(int k=0;k<c1;k++){
+                        res[i][j] += arr1[i][k] * arr2[k][j];
+                    }
                 }
             }
-        }else {System.out.println("invalid"); }
-        
-        for(int i=0;i<arr1.length;i++){
-                for(int j=0;j<arr1.length;j++){
-                    System.out.println(arr1[i][j]);
-                }
+
+            for(int i=0;i<r1;i++){
+                for(int j=0;j<c2;j++){
+                    System.out.print(res[i][j] + " ");
+                }System.out.println();
+        }}else{
+            return;
         }
     }
 }
 
-// Matrix multiplication
+// Matrix multiplication revision needed ,it is a good question
