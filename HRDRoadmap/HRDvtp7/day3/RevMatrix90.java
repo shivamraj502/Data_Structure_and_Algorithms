@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class RevMatrix90 {
     public static int[][] revMatrix(int[][] arr1){
         int [][] res = new int[arr1.length][arr1.length];
@@ -29,6 +30,26 @@ public class RevMatrix90 {
             {7,8,9}
         };
         // int [][] res = transpose(arr1);
-        revMatrix(arr1);
+        Scanner sc = new Scanner(System.in);
+        int degree = sc.nextInt();
+        int rot = degree % 90;
+
+        if(rot == 0){
+            if(rot % 4 != 0){ 
+                if(rot % 4 == 1){
+                    arr1 = revMatrix(arr1);
+                }
+                if(rot % 4 == 2){
+                    arr1 = revMatrix(arr1);
+                    arr1 = revMatrix(arr1);
+                }
+                if(rot % 4 == 3){
+                    arr1 = revMatrix(arr1);
+                    arr1 = revMatrix(arr1);
+                    arr1 = revMatrix(arr1);
+                }
+            }else System.out.println("no rotation");
+            
+        }else System.out.println("invalid degree");
     }
 }
