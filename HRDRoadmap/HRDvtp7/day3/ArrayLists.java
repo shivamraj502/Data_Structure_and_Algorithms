@@ -21,7 +21,7 @@ public class ArrayLists {
         newList.add(32);
         for (Object element : newList) {
             System.out.println(element); // Error
-            aList.add(77);
+            // aList.add(77);
         }
 
         System.out.println(aList);

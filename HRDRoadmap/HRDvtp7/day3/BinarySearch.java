@@ -20,4 +20,4 @@ public class BinarySearch {
 }
 
 
-// Q: why O(n) = log(n) base(2)
+// Q: why O(n) = log(n) base(2) Done: n + n/2 + n/4 + n/8 + ... + n/2^k :> n/2^k = 1 :> k = log_2 (n)
