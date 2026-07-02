@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.PriorityQueue;
@@ -9,7 +11,8 @@ public class PriorityQueue1 {
         ArrayList<Integer> list = new ArrayList<>();
         HashSet<Integer> set = new HashSet<>();
         HashMap<Integer,Integer> map = new HashMap<>();
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        // PriorityQueue<Integer> pq = new PriorityQueue<>();       //MIN-HEAP
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());    // MAX-HEAP
 
         pq.add(1);
         pq.add(222);
