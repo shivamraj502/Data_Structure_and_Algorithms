@@ -5,6 +5,16 @@ Problem: First and Last Position in Sorted Array – LeetCode34
 Goal: Learn how to tweak binary search conditions.
  */
 public class LeetCode34 {
+    public static int [] searchElement(int [] arr,int t){
+        int [] res = {-1,-1};
+
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==t && res[0] == -1){ res[0]=i;res[1] = i;}
+            else if(arr[i] == t){res[1]=i;}
+        }return res;
+    }
+
+
     public static int[] searchRange(int[] nums, int target) {
         int [] result={-1,-1};
         int left=-1;
@@ -17,13 +27,14 @@ public class LeetCode34 {
         return result;
     }
     public static void main(String[] args) {
-        int []nums = {5,7,7,8,8,10};
-        int target = 10;
-        int res[] = searchRange(nums,target);
+        int []nums = {5,7,7,8,8,9,10};
+        int target = 9;
+        // int res[] = searchRange(nums,target);
+        int res2[] = searchElement(nums,target);
 
         
-        for(int i=0;i<res.length;i++){
-            System.out.print(res[i]+" ");
+        for(int i=0;i<res2.length;i++){
+            System.out.print(res2[i]+" ");
         }
     }
 }
