@@ -1,6 +1,6 @@
 // package HRDRoadmap.HRDvtp7.day5;
 public class LC53b {
-    public static int maxSubArray(int[] nums) {
+    public static int maxSubArray(int[] nums) { //cadanes algorithm
         int max = nums[0];
         for(int i=0;i<nums.length;i++){
             int sum = 0;
@@ -10,9 +10,29 @@ public class LC53b {
             }
         }return max;
     }
+    public static int maxSubArray2(int[] nums) { //cadanes algorithm
+        int max = nums[0];
+        int sum = nums[0];
+        
+        for(int i=1;i<nums.length;i++){ // -2 1 
+
+            // if(sum>max){             // Mistakes: cant compare sum is greater than max so how to change sum there are two cases 1. sum is max 2. num[i] is max
+            //     // if(nums[i]>nums[i-1]){
+            //     //     max = nums[i];
+            //     //     sum = nums[i];
+            //     // }else max = sum;
+            // }
+
+            if(sum < 0){
+                     sum = nums[i];
+            }else sum = sum + nums[i];
+
+            if(sum>max) max=sum;
+        }return max;
+    }
     public static void main(String [] args){
         int [] nums = {1,2,3};
-        System.out.println(maxSubArray(nums));
+        System.out.println(maxSubArray2(nums));
     }
 }
 
