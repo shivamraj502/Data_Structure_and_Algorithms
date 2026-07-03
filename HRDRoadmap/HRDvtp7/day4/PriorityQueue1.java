@@ -12,12 +12,12 @@ public class PriorityQueue1 {
         HashSet<Integer> set = new HashSet<>();
         HashMap<Integer,Integer> map = new HashMap<>();
         // PriorityQueue<Integer> pq = new PriorityQueue<>();       //MIN-HEAP
-        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());    // MAX-HEAP
+        PriorityQueue<String> pq = new PriorityQueue<>(Collections.reverseOrder());    // MAX-HEAP
 
-        pq.add(1);
-        pq.add(222);
-        pq.add(3);
-        pq.add(4);
+        pq.add("hi");
+        pq.add("222");
+        pq.add("3");
+        pq.add("4");
 
         System.out.println(pq);
         System.out.println(pq.poll());
