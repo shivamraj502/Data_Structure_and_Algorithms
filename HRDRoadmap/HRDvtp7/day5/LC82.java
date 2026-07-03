@@ -2,28 +2,32 @@
 public class LC82 {             // not Done
     Node head;
     public static class Node{
-        int data;
+        int val;
         Node next;
-        Node(int data,Node next){
-            this.data = data;
+        Node(int val,Node next){
+            this.val = val;
             this.next = null;
         }
-        Node(int data){
-            this.data = data;
+        Node(int val){
+            this.val = val;
         }
     }
-    public static Node deleteDuplicates(Node head) {
-        if(head == null || head.next == null)return head;
+    public static Node deleteDuplicates2(Node head) {
+        Node dummy= new Node(0);
+        dummy.next = head;
 
-        Node temp = head;
-        while(temp != null && temp.next != null){
-            if(temp.next.data == temp.data){
-                temp.data = temp.next.data;
-                temp.next = temp.next.next;
+        Node pre = dummy;
+        Node curr = head;
+
+        while(curr != null){
+            if(curr.next != null && curr.val == curr.next.val){
+                while(curr.next != null && curr.val == curr.next.val){
+                    curr = curr.next;
+                }pre.next= curr.next;
             }else{
-                temp = temp.next;
-            }
-        }return head;
+                pre=pre.next;
+            }curr = curr.next;
+        }return dummy.next;
     }
     public static void main(String[] args) {
         Node head = new Node(1);
@@ -34,10 +38,10 @@ public class LC82 {             // not Done
         head.next.next.next.next.next = new Node(4);
         head.next.next.next.next.next.next = new Node(5);
 
-        deleteDuplicates(head);
+        deleteDuplicates2(head);
         Node temp = head;
         while (temp != null) {
-            System.out.println(temp.data);
+            System.out.println(temp.val);
             temp=temp.next;
         }
     }
@@ -46,4 +50,8 @@ public class LC82 {             // not Done
 /**
 Input: head = [1,2,3,3,4,4,5]
 Output: [1,2,5]
+ */
+
+/**     DOUBT
+why its time complexity is O(n), i think n^2
  */
