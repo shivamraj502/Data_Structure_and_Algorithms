@@ -28,7 +28,8 @@ public class LC876 {        // can do it using slow and fast pointers
             i++;
             temp2 = temp2.next;
             if(i==count/2) {return temp2;}
-        }return null;
+        }
+        return null;
     }
     public static void main(String[] args) {
         // Node n1 = new Node(1,n2);    // Mistakes: created nodes of links to next node
