@@ -28,7 +28,6 @@ public class Stack1 {
         top = add(nums, 25, top);
         System.out.print("stack: ");
         for(int i=0;i<top;i++){System.out.print(nums[i]+" ");}
-        System.out.println(top);
 
         //Remove
         top = remove(nums, top);
