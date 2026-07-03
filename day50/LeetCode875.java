@@ -42,7 +42,7 @@ public class LeetCode875 {
     }
 }
 
-/**
+/** minEatingSpeed
  * Example 1:
  * Input: piles = [3,6,7,11], h = 8
  * Output: 4
