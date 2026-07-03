@@ -1,7 +1,7 @@
 // package HRDRoadmap.HRDvtp7.day5;
 import java.util.Arrays;
 public class LC1 {
-    public static int [] arr(int [] nums,int t){
+    public static int [] arr(int [] nums,int t){    // also solve it using hashmap, map, and two pointer approach
         int [] res = new int[2];
         for(int i=0;i<nums.length-1;i++){
             for(int j=i+1;j<nums.length;j++){
@@ -15,7 +15,7 @@ public class LC1 {
         int [] res = new int[2];
         int sum = nums[0]+nums[1];
 
-        
+        // bit manipulation approach using hashmap and O(n) time complexity
         return res;
     }
     public static void main(String[] args) {
@@ -23,7 +23,7 @@ public class LC1 {
         // int t = 9;
         int [] nums = {3,2,4};
         int t = 6;
-        int [] result = arr(nums, t);
+        int [] result = arr2(nums, t);
         System.out.println(Arrays.toString(result));
     }
 }

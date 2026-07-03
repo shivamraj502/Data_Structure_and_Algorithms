@@ -1,6 +1,6 @@
 // package HRDRoadmap.HRDvtp7.day5;
 public class LC268 {
-    public static int missingNumber(int[] nums) {
+    public static int missingNumber(int[] nums) {   // also solve it using hashmap,math,bit manipulation, brute force technique.
         int miss = 0;
 
         if(nums.length > 1){ 
