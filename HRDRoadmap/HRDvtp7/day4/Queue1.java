@@ -19,6 +19,9 @@ public class Queue1 {
     public static int size(){
         return Size;
     }
+    public static boolean isEmpty(){
+        return (size() == 0);
+    }
     public static void main(String[] args) {
         int [] nums = new int[10];
 
@@ -26,13 +29,13 @@ public class Queue1 {
         Size = add(nums, 5, Size);
         Size = add(nums, 52, Size);
         Size = add(nums, 25, Size);
-        System.out.print("stack: ");
+        System.out.print("Queue: ");
         for(int i=0;i<Size;i++){System.out.print(nums[i]+" ");}
         System.out.println();
 
         //Remove
         Size = remove(nums, Size);
-        System.out.print("stack: ");
+        System.out.print("Queue: ");
         for(int i=0;i<Size;i++){System.out.print(nums[i]+" ");}
         System.out.println();
 
@@ -41,6 +44,9 @@ public class Queue1 {
 
         //size
         System.out.println("Size: "+size());
+        
+        //is Empty
+        System.out.println("is empty? "+isEmpty());
         System.out.println();
     }
 }
