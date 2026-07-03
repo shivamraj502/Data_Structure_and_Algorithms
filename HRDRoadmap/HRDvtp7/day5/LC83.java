@@ -1,5 +1,5 @@
 // package HRDRoadmap.HRDvtp7.day5;
-public class LC87 {     //  
+public class LC83 {     //  
     Node head;
     public static class Node{
         int data;

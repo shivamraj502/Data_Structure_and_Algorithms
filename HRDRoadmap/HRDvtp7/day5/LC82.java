@@ -1,5 +1,5 @@
 // package HRDRoadmap.HRDvtp7.day5;
-public class LC82 {
+public class LC82 {             // not Done
     Node head;
     public static class Node{
         int data;
@@ -14,7 +14,7 @@ public class LC82 {
     }
     public static Node deleteDuplicates(Node head) {
         if(head == null || head.next == null)return head;
-        
+
         Node temp = head;
         while(temp != null && temp.next != null){
             if(temp.next.data == temp.data){
@@ -24,7 +24,6 @@ public class LC82 {
                 temp = temp.next;
             }
         }return head;
-
     }
     public static void main(String[] args) {
         Node head = new Node(1);
