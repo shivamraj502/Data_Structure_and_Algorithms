@@ -1,7 +1,6 @@
 // package HRDRoadmap.HRDvtp7.day6;
 public class LC122 {    // 7,1,5,3,6,4
     public static int maxProfit2(int[] prices) {
-        int profit = 0;
         int maxProfit = 0;
 
         for(int i = 1; i < prices.length; i++){
