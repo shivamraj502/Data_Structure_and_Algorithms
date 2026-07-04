@@ -1,14 +1,16 @@
 public class LC121 {    // 7,1,5,3,6,4
     public static int maxProfit(int[] prices) {
-        int min=prices[0];
+        int minCost=prices[0];
         int max=prices[0];
-        int profit=0;
+        int maxProfit=0;
+
         for(int i=0;i<prices.length;i++){
-            if(prices[i]<min){min=prices[i];}
-            if(prices[i]>max){max=prices[i];}
-            if((max-min)>profit){profit=max-min;}
-        }
-        return profit;
+            if( prices[i]<minCost){  minCost= prices[i];}
+            max = prices[i];
+            if((max-minCost) > maxProfit){
+                maxProfit=max-minCost;
+            }
+        }return maxProfit;
     }
     public static int maxProfit2(int[] prices) {
         int profit = 0;
@@ -18,11 +20,22 @@ public class LC121 {    // 7,1,5,3,6,4
             }
         }return profit;
     }
+    public static int maxProfit3(int[] prices) {
+        int profit = 0;
+        int maxProfit = 0;
+
+        for(int i = 1; i < prices.length; i++){
+            if(prices[i] > prices[i-1]){
+                profit = prices[i] - prices[i-1];
+                if(profit>maxProfit){ maxProfit=profit;}
+            }
+        }return maxProfit;
+    }
 
     public static void main(String[] args) {
         // int[] prices = {7,1,5,3,6,4}; // Output: 5
         int[] prices = {7,6,4,3,1};
-        System.out.println("Max Profit: "+maxProfit2(prices));
+        System.out.println("Max Profit: "+maxProfit(prices));
     }
     
 }
