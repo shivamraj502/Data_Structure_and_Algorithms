@@ -18,6 +18,13 @@ public class LC122 {    // 7,1,5,3,6,4
     }
 }
 
+
+/** Mistakes:
+1. cant think, how to remove one of two for loops.
+2. cant find max and min numbers.
+3. i was trying to compare last to first element which is of no need.
+4. i never thought that min is always before max, because i have to buy first and then sell, so min will always be before max.
+ */
 /**
 Example 1:
 
