@@ -1,7 +1,7 @@
 // package HRDRoadmap.HRDvtp7.day4;
 import java.util.Collections;
 import java.util.PriorityQueue;
-public class Leetcode1985 {     //i must 
+public class Leetcode1985 {     //i must use strings length to compare, because 2>10 but 2<10 in string comparison.
     public static String kthLargestNumber1(String[] nums, int k) {
         PriorityQueue<String> pq = new PriorityQueue<>();
         // PriorityQueue<String> pq = new PriorityQueue<>(Collections.reverseOrder());
