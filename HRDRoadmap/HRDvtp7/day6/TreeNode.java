@@ -1,7 +1,7 @@
 // package HRDRoadmap.HRDvtp7.day6;
 import java.util.*;
-public class TreeNodess {
-    class TreeNodes{
+public class TreeNode {
+    static class TreeNodes{
         int val;
         TreeNodes left;
         TreeNodes right;
@@ -36,12 +36,15 @@ public class TreeNodess {
         TreeNodes root = new TreeNodes(1);
         new TreeNodes(2,new TreeNodes(4),new TreeNodes(5));
         new TreeNodes(3, null,new TreeNodes(7));
+
         System.out.print("Preorder: ");
         preorder(root);
         System.out.println();
+
         System.out.print("Inorder: ");
         inorder(root);
         System.out.println();
+        
         System.out.print("Postorder: ");
         postorder(root);
         System.out.println();
