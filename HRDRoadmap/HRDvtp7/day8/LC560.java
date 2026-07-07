@@ -10,6 +10,7 @@ public class LC560 {
             }
         }return count;
     }
+    
     public static void main(String[] args) {
         // int [] nums = {1,1,1};
         // int k = 2;

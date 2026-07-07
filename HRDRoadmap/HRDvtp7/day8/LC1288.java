@@ -19,7 +19,7 @@ public class LC1288 {
                     if((intervals[i][0]>=intervals[j][0]) && (intervals[i][1]<=intervals[j][1])){
                         // System.out.println("1: "+ intervals[i][0]+" "+intervals[j][0] + ",2: "+ intervals[i][1]+" "+intervals[j][1]);
                         // System.out.println("i: "+i+" ,j: "+j);
-                        return i;
+                        return i-1;
                     }
                     else if((intervals[i][0]<=intervals[j][0]) && (intervals[i][1]>=intervals[j][1])){
                         // System.out.println("1: "+ intervals[i][0]+" "+intervals[j][0] + ",2: "+ intervals[i][1]+" "+intervals[j][1]);
@@ -31,8 +31,8 @@ public class LC1288 {
         }return -1;
     }
     public static void main(String[] args) {
-        int[][] intervals = {{2,8},{3,6}};
-        // int[][] intervals = {{1,4},{3,6},{2,8}};
+        // int[][] intervals = {{2,8},{3,6}};
+        int[][] intervals = {{1,4},{3,6},{2,8}};
         System.out.println(removeCoveredIntervals(intervals));
     }
 }
