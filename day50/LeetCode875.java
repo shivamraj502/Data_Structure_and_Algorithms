@@ -29,15 +29,37 @@ public class LeetCode875 {
         }
             // System.out.println("sum: "+sum);
             if(sum==h){return i;}
-        }
-        return -1;   
+        }return -1;   
     }
+    public static int minEatingSpeed2(int[] piles, int h) {
+
+        int min=piles[0];
+        int max=piles[0];
+        for(int i=0;i<piles.length;i++){
+            if(piles[i]<min){min=piles[i];}
+            if(piles[i]>max){max=piles[i];}
+        }//System.out.println("min: "+min+" ,max: "+max);
+
+        if(h<min){ min = h;}
+        for(int i=1;i<=max;i++){ 
+            int sum=0;
+            for(int j=0;j<piles.length;j++){  // { 30,11,23,4,20 } div: 2 {15, 5.5, 11.5, 2, 10 }
+            sum += Math.ceilDiv(piles[j], i);
+            // System.out.println("sum: "+sum);
+            }
+            if(sum==h){return i;}
+        }return -1;   
+        }
 
     public static void main(String[] args) {
         int[] piles = { 30,11,23,4,20 }; //speed = 50 banana / hour    { 30,11,23,4,20 }
-        //int[] piles = { 3,6,7,11 };    //speed = 50 banana / hour    { 30,11,23,4,20 }
-        int h = 6;                                            //speed23:  2  1  1 1  1
-        System.out.println("speed: "+minEatingSpeed(piles, h));
+        int h = 5;
+        // int h = 6;
+        // int[] piles = { 3,6,7,11 };  
+        // int h = 8;                                            
+        // int[] piles = {312884470 };    
+        // int h = 312884469;                                           
+        System.out.println("speed: "+minEatingSpeed2(piles, h));
         // System.out.println(Math.ceil(15.2));
     }
 }
@@ -51,6 +73,10 @@ public class LeetCode875 {
  * Output: 30
  * Example 3:
  * Input: piles = [30,11,23,4,20], h = 6
+ * Output: 23
+ * Math.ceil(15,2)
+ * Example 4:
+ * Input: piles = [312884470], h = 312884469
  * Output: 23
  * Math.ceil(15,2)
  */
