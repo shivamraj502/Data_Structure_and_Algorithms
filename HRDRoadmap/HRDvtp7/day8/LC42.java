@@ -1,4 +1,4 @@
-public class LC40 {
+public class LC42 {
     public static int trap(int[] height) {
         int count = 0;
         
