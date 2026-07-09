@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LC82",
+            "request": "launch",
+            "mainClass": "HRDRoadmap.HRDvtp7.day5.LC82",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "RevMatrix90",
+            "request": "launch",
+            "mainClass": "HRDRoadmap.HRDvtp7.day3.RevMatrix90",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
+            "name": "ImplementStackusingArray",
+            "request": "launch",
+            "mainClass": "ImplementStackusingArray",
+            "projectName": "Dsa journey_a10903e2"
+        },
+        {
+            "type": "java",
             "name": "ReinforceWeek3skills",
             "request": "launch",
             "mainClass": "ReinforceWeek3skills",
