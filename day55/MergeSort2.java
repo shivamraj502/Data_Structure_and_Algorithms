@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
 Day 55 – Merge Sort (Divide and Conquer)
 Concept: Recursively divide array and merge sorted halves.
@@ -27,7 +29,6 @@ public class MergeSort2 {
         mergeSort(right);
         merge(arr,left,right);
     }
-
     public static void merge(int[] arr,int[] left,int[] right){
         int i=0,j=0,k=0;
 
@@ -66,7 +67,6 @@ public class MergeSort2 {
         mergeSort2(right);
         merge2(arr,left,right);
     }
-
     public static void merge2(int[] arr,int[] left,int[] right){
         int i=0,j=0,k=0;
 
@@ -85,42 +85,41 @@ public class MergeSort2 {
             arr[k++]=right[j++]; 
         }
     }
-
     public static void mergeSort3(int[] arr) {
         if (arr.length <= 1) {
             return;
         }
 
-        int mid = arr.length / 2;
+        int mid = arr.length/2;
+        int[] left = new int[mid];
+        int[] right = new int[arr.length-mid];
 
-        // Left gets larger size when length is odd
-        int[] left = new int[arr.length - mid];   // Left is larger or equal
-        int[] right = new int[mid];               // Right is smaller or equal
+        for(int i=0;i<mid;i++){ left[i]=arr[i]; }
+        for(int i=mid;i<arr.length;i++){ right[i-mid]=arr[i];   }   //Mistake: right[i] over right[i-mid]
 
-        // Copy left half (from start)
-        for (int i = 0; i < arr.length - mid; i++) {
-            left[i] = arr[i];
+        mergeSort3(left);
+        mergeSort3(right);
+        merge3(arr,left,right);     // Mistake: mid over arr ,I written.
+
+        System.out.println(Arrays.toString(arr));
+    }
+    public static void merge3(int []arr,int[] left,int[] right){    // Mistake: int[] over void
+        int i=0,j=0,k=0;
+
+        while(i<left.length && j<right.length){
+            if(left[i] <= right[j]){
+                arr[k++] = left[i++];
+            }else{
+                arr[k++] = right[j++];
+            }
         }
 
-        // Copy right half (from mid to end)
-        for (int i = mid; i < arr.length; i++) {
-            right[i - mid] = arr[i];
-        }
-
-        // Recursive calls
-        mergeSort(left);
-        mergeSort(right);
-
-        // Merge the sorted halves
-        merge(arr, left, right);
+        while(i<left.length){ arr[k++]=left[i++];}
+        while(j<right.length){ arr[k++]=right[j++];}    //Mistake: i++ over right[j++]
+        System.out.println("Merge: "+Arrays.toString(arr));
     }
     public static void main(String[] args) {
         int [] arr = {5,8,9,88,4};
-        mergeSort2(arr);
-
-        System.out.println("sorted array: ");
-        for(int i=0;i<arr.length;i++){
-            System.out.print(arr[i]+" ");
-        }System.out.println();
+        mergeSort3(arr);
     }
 }
