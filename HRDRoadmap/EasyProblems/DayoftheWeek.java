@@ -5,7 +5,7 @@
 public class DayoftheWeek {
 
     public static void main(String[] args) {
-        System.out.println("find week day: "+ findday(1));
+//        System.out.println("find week day: "+ findday(1));
         System.out.println();
     }
 }

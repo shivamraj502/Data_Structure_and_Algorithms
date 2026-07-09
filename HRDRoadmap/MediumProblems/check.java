@@ -1,7 +1,7 @@
 // import java.math.BigInteger;
 import java.math.*;
 
-public class check {
+class check2 {
     public static void main(String[] args) {
         BigInteger A = new BigInteger("363588395960667043875488");
         BigInteger temp= new BigInteger("100");

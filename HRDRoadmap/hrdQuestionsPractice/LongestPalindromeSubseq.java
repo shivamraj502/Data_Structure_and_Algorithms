@@ -2,7 +2,9 @@ public class LongestPalindromeSubseq {
     public static String longestPalSubseq(String s){
         int start=0,end=s.length()-1;
         char arr[] = s.toCharArray();
-        for()
+//        for()
+
+        return "";
     }
     public static void main(String[] args) {
         String s="1234325";

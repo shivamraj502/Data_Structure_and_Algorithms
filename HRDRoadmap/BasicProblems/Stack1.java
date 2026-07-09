@@ -1,4 +1,5 @@
- package HRDRoadmap.HRDvtp7.day4;
+//package HDRoadmap.HRDvtp7.day4;
+
 public class Stack1 {
    static int [] arr;
    static int top=0;

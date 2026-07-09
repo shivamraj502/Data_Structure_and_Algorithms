@@ -1,8 +1,9 @@
 public class leetcode402 {
     public static int findMin(int n,int k){
         int max=0;
-        String s=n.toString();
-        for()
+//        String s=n.toString();
+//        for()
+        return 0;
     }
     public static void main(String[] args) {
      int n=1432219;

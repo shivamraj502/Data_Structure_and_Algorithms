@@ -22,7 +22,7 @@ public class countSumReachTarget {
         for(int i=0;i<n;i++){
             System.out.print( arr[i]+" ");
         }System.out.println();
-ṇ
+
         for(int i=0;i<n;i++){
             for(int j=i;j<n;j++){
                 sum += arr[j];

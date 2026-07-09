@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HRDRoadmap.iml" filepath="$PROJECT_DIR$/HRDRoadmap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HRDvtp7/HRDvtp7.iml" filepath="$PROJECT_DIR$/HRDvtp7/HRDvtp7.iml" />
+    </modules>
+  </component>
+</project>

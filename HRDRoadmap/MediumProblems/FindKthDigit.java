@@ -6,7 +6,7 @@ Given three numbers a, b and k, find k-th digit in ab from right side
 
 public class FindKthDigit {
     public static int findDigit(int a,int b,int k){
-        
+        return 0;
     }
     public static void main(String[] args) {
         

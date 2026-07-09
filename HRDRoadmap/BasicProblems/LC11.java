@@ -1,5 +1,5 @@
 // package HRDRoadmap.HRDvtp7.day8;
-public class LC11 {
+    public class LC11 {
     public static int maxArea(int [] height){
         // int max = height[0];
         int max = -1;
