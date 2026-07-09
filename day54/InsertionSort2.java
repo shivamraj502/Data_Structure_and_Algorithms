@@ -1,5 +1,7 @@
 // import java.util.Arrays;
 
+import java.util.Arrays;
+
 /**
 Day 54 – InsertionSort
 Concept: Build sorted array one element at a time.
@@ -21,8 +23,19 @@ public class InsertionSort2 {
         for (int i = 0; i < arr.length; i++) {
         System.out.print(arr[i]+" ");}
     }
+    public static void sort2(int arr[]){
+        for(int i=0;i<arr.length-1;i++){
+          for(int j=i;j>=0;j--){
+            if(arr[j]>arr[j+1]){
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }else break;
+          }
+        }System.out.println(Arrays.toString(arr));
+    }
     public static void main(String[] args) {
         int arr[] = {5,8,9,1,6};
-        sort(arr);
+        sort2(arr);
     }
 }
