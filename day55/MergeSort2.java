@@ -123,3 +123,27 @@ public class MergeSort2 {
         mergeSort3(arr);
     }
 }
+
+/**
+//Merge Sort mistakes
+
+//Right array copy:
+//right[i-mid] = arr[i]
+
+//Don't write:
+//right[i] = arr[i]
+
+//While copying remaining right elements:
+//arr[k++] = right[j++]
+//not right[i++]
+
+//Print array only after merge sort completes
+
+//One merge() function is enough
+
+//One mergeSort() function is enough
+
+//Split:
+//left = mid
+//right = n-mid
+ */
