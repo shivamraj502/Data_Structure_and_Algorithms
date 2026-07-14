@@ -7,6 +7,7 @@ Goal: Learn partitioning and in-place swapping.
 public class QuickSort2 {
     public static void QuickSort(int [] arr){
         int [] newArr = new int[arr.length];
+        
     }
     public static void main(String[] args) {
         int [] arr = {5,8,9,88,4};
