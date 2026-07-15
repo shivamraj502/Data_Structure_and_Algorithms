@@ -68,11 +68,37 @@ public class SortingPractice {
                 }return nums;
             }
         }
+    public static int[] LeetCode75b(int[] nums){
+        int min=nums[0];
+        int max=nums[0];
+        int k=0;
+        int [] newarr = new int[nums.length];
+
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]<min){min=nums[i];}
+            if(nums[i]>max){max=nums[i];}
+        }
+        //System.out.println("min max: "+min +" "+max);
+
+        
+            for(int i=0;i<=max;i++){ 
+                    for(int j=0;j<nums.length;j++){
+                        if(i == nums[j]){
+                            newarr[k++] = i;
+
+                        }
+                    }
+            }
+                for(int j=0;j<nums.length;j++){
+                        nums[j] = newarr[j];   
+                }return nums;
+        }
 
     /** /how to check a number in number array
+     * linear search
      * 
-     * @param s
      */
+
     public static void LeetCode56(String s){
 
     }
@@ -86,7 +112,7 @@ public class SortingPractice {
         // int [] nums = {1,1,1,1,1};
         // int [] nums = {2,2,2,1,1,0,0,0};
         int [] nums = {2,0};
-        int [] res = LeetCode75(nums);
+        int [] res = LeetCode75b(nums);
         System.out.println(Arrays.toString(res));
     }
 }
