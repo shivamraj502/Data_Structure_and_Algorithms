@@ -7,7 +7,6 @@ Goal: Learn practical sorting in Java for objects.
 public class LeetCode791 {
     public static String sort(String s, String order){
         String str="";
-        int tempCount=0;
         
         for(int i=0;i<order.length();i++){
             int count=0;
@@ -15,27 +14,42 @@ public class LeetCode791 {
             for(int j=0;j<s.length();j++){
                 if(order.charAt(i)==s.charAt(j)){
                     count++;
-                    tempCount++;
+                    // System.out.println(".");
                 }
             }
 
             for(int k=0;k<count;k++){
-                str+=order.charAt(i);
+                str += order.charAt(i);
+                // System.out.println(",,");
+                // System.out.println(str);
             }
         }
-        // System.out.println(tempCount);
+        
+        for(int i=0;i<s.length();i++){
+            String temp = ""+s.charAt(i);
 
-        for(int i=tempCount;i<s.length();i++){
-            str += s.charAt(i);
-        }
-
-        // System.out.println("string: "+ str);
-
-        return str;
+            if(str.contains(temp)){
+                // System.out.println("<");
+                continue;
+            }else{
+                int count =0;
+                for(int j=i;j<s.length();j++){
+                    if(s.charAt(i)==s.charAt(j)){
+                        count++;
+                        // System.out.println(">");
+                    }
+                }
+                for(int j=0;j<count;j++){
+                        str += temp;
+                }
+            }
+        }return str;
     }
     public static void main(String[] args) {
-            String s = "abcd";
-            String order = "bcafg";
+            String s = "utzoampdgkalexslxoqfkdjoczajxtuhqyxvlfatmptqdsochtdzgypsfkgqwbgqbcamdqnqztaqhqanirikahtmalzqjjxtqfnh";
+            // String order = "bcafg";
+            String order = "hucw";
+            // String order = "cba";
             String str =sort(s,order);
             System.out.println("result: "+str);
     }
@@ -43,14 +57,28 @@ public class LeetCode791 {
 
 /**
 Example 1:
-
 Input: order = "cba", s = "abcd"
-
 Output: "cbad"
 
 Example 2:
-
 Input: order = "bcafg", s = "abcd"
-
 Output: "bcad"
+
+Example 2:
+Input: order = ""hucw"", s = "utzoampdgkalexslxoqfkdjoczajxtuhqyxvlfatmptqdsochtdzgypsfkgqwbgqbcamdqnqztaqhqanirikahtmalzqjjxtqfnh"
+Output: "bcad"
+
+
+ */
+
+// Mistakes: 
+/**
+    how to check a char in a string: 
+    if (s.indexOf('a') != -1) {
+    // 'a' exists in s
+    } 
+
+    if (s.contains(String.valueOf('a'))) { ... }
+    // or
+    if (s.contains("a")) { ... }
  */
