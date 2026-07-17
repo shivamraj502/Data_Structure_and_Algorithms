@@ -46,10 +46,11 @@ public class LeetCode791 {
         }return str;
     }
     public static void main(String[] args) {
-            String s = "utzoampdgkalexslxoqfkdjoczajxtuhqyxvlfatmptqdsochtdzgypsfkgqwbgqbcamdqnqztaqhqanirikahtmalzqjjxtqfnh";
+            // String s = "utzoampdgkalexslxoqfkdjoczajxtuhqyxvlfatmptqdsochtdzgypsfkgqwbgqbcamdqnqztaqhqanirikahtmalzqjjxtqfnh";
+            String s = "bcafg";
             // String order = "bcafg";
-            String order = "hucw";
-            // String order = "cba";
+            // String order = "hucw";
+            String order = "cba";
             String str =sort(s,order);
             System.out.println("result: "+str);
     }
