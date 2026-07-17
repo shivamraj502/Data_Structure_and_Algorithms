@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.Comparator;
+import java.util.List;
 /**
 Day 59 – SortingPractice (Mixed)
 Problems to Solve:
@@ -118,14 +120,40 @@ public class SortingPractice {
         Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
         Output: [[1,6],[8,10],[15,18]]
          */
-        int [][] res;
-        for(int i=0;i<intervals.length;i++){
-            for(int j=0;j<intervals[0].length;j++){
-                System.out.print(intervals[i][1]);
-            }System.out.println();
-        }
+        if(intervals.length <= 1) return intervals;
 
-        return intervals;
+        Arrays.sort(intervals,Comparator.comparingInt(i -> i[0]));  // Sorting
+        List<int[]> res = new ArrayList<>();
+        int [] newInterval = intervals[0];
+        res.add(newInterval);
+        for(int[] interval:intervals){
+            if(interval[0] <= newInterval[1]){newInterval [1] = Math.max(newInterval[1],interval[1] );}
+            else{ newInterval = interval; res.add(newInterval);
+                // System.out.println(Arrays.toString(interval));   //Checking equals or not
+                // System.out.println(Arrays.toString(newInterval));
+            }
+        }
+        
+/**
+* Arrays.sort(intervals, comparator)
+
+Two-argument version of sort — first is the array, second tells Java how to compare elements.
+Needed because intervals is int[][] (array of arrays) — Java doesn't know which column to sort by on its own.
+
+Comparator.comparingInt(i -> i[0])
+
+A factory method that builds a Comparator for you, based on an int key you extract.
+i = each row of the 2D array (e.g. {5, 10}, {1, 3}).
+i -> i[0] = a lambda saying "use i[0] (first element of that row) as the sort key."
+So this line means: "sort rows by comparing their first element."
+
+Why not just Comparator.comparing()?
+
+comparingInt avoids autoboxing (int → Integer) — slightly faster, cleaner for primitives.
+comparing() works too but is meant for Integer/objects, not raw int.
+*/
+
+        return res.toArray(new int[res.size()][]);
     }
     public static void LeetCode347(String s){
 
@@ -143,7 +171,8 @@ public class SortingPractice {
         int [][] intervals = {
             {1,3},{2,6},{8,10},{15,18}
         };
-        System.out.println(LeetCode56(intervals));
+        int[][] res = LeetCode56b(intervals);
+        for(int[] n: res){System.out.println(Arrays.toString(n));}
     }
 }
 
