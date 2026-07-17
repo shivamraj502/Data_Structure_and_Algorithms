@@ -99,8 +99,33 @@ public class SortingPractice {
      * 
      */
 
-    public static void LeetCode56(String s){
+    public static int[][]  LeetCode56(int[][] intervals){
+        /**
+        Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
+        Output: [[1,6],[8,10],[15,18]]
+         */
+        int [][] res;
+        for(int i=0;i<intervals.length;i++){
+            for(int j=0;j<intervals[0].length;j++){
+                System.out.print(intervals[i][1]);
+            }System.out.println();
+        }
 
+        return intervals;
+    }
+    public static int[][]  LeetCode56b(int[][] intervals){
+        /**
+        Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
+        Output: [[1,6],[8,10],[15,18]]
+         */
+        int [][] res;
+        for(int i=0;i<intervals.length;i++){
+            for(int j=0;j<intervals[0].length;j++){
+                System.out.print(intervals[i][1]);
+            }System.out.println();
+        }
+
+        return intervals;
     }
     public static void LeetCode347(String s){
 
@@ -111,9 +136,14 @@ public class SortingPractice {
         // int [] nums = {0};
         // int [] nums = {1,1,1,1,1};
         // int [] nums = {2,2,2,1,1,0,0,0};
-        int [] nums = {2,0};
-        int [] res = LeetCode75b(nums);
-        System.out.println(Arrays.toString(res));
+        // int [] nums = {2,0};
+        // int [] res = LeetCode75b(nums);
+        // System.out.println(Arrays.toString(res));
+
+        int [][] intervals = {
+            {1,3},{2,6},{8,10},{15,18}
+        };
+        System.out.println(LeetCode56(intervals));
     }
 }
 
