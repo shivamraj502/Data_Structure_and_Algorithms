@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.*;
 /**
 Day 59 – SortingPractice (Mixed)
 Problems to Solve:
@@ -155,8 +157,27 @@ comparing() works too but is meant for Integer/objects, not raw int.
 
         return res.toArray(new int[res.size()][]);
     }
-    public static void LeetCode347(String s){
+    
+    public static int[] LeetCode347(int[] nums, int k){
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int [] res = new int[k];
 
+        for(int n : nums){
+            if(map.get(n)==null){
+                map.put(n,1);
+            }else{
+                map.put(n, map.get(n)+1);
+            }
+        }////System.out.println(map);
+
+        PriorityQueue<Map.Entry<Integer,Integer>> pq = new PriorityQueue<>((a,b) -> b.getValue() - a.getValue());
+        pq.addAll(map.entrySet());
+        for(int i=0;i<k;i++){
+            Map.Entry<Integer,Integer> entry = pq.poll();
+            res[i] = entry.getKey();
+        }
+        
+        return res;
     }
     public static void main(String[] args) { //Input: nums = [2,0,2,1,1,0] Output: [0,0,1,1,2,2]
         // int [] nums = {2,0,2,1,1,0};
@@ -168,11 +189,17 @@ comparing() works too but is meant for Integer/objects, not raw int.
         // int [] res = LeetCode75b(nums);
         // System.out.println(Arrays.toString(res));
 
-        int [][] intervals = {
-            {1,3},{2,6},{8,10},{15,18}
-        };
-        int[][] res = LeetCode56b(intervals);
-        for(int[] n: res){System.out.println(Arrays.toString(n));}
+        // int [][] intervals = {
+        //     {1,3},{2,6},{8,10},{15,18}
+        // };
+        // int[][] res = LeetCode56b(intervals);
+        // for(int[] n: res){System.out.println(Arrays.toString(n));}
+
+        // int [] nums = {1,1,1,2,2,3};    int k = 2;
+        // int [] nums = {1};   int k = 2;
+        int [] nums = {1,2,1,2,1,2,3,1,3,2}; int k = 2;
+        // int [] nums = {3,0,1,0}; int k = 1;
+        System.out.println(Arrays.toString(LeetCode347(nums, k)));
     }
 }
 
@@ -210,5 +237,27 @@ Output: [[1,7]]
 Explanation: Intervals [1,4] and [4,7] are considered overlapping.
 
 347:
+Example 1:
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
 
+Example 2:
+Input: nums = [1], k = 1
+Output: [1]
+
+Example 3:
+Input: nums = [1,2,1,2,1,2,3,1,3,2], k = 2
+Output: [1,2]
+ */
+
+/**MISTAKES
+ * Can you rename a, b?
+Yes — completely arbitrary, just like loop variable i. Java doesn't care about the name.
+java
+new PriorityQueue<>((entry1, entry2) -> entry2.getValue() - entry1.getValue());
+// or
+new PriorityQueue<>((x, y) -> y.getValue() - x.getValue());
+// or something descriptive:
+new PriorityQueue<>((first, second) -> second.getValue() - first.getValue());
+ * 
  */
