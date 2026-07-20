@@ -197,8 +197,8 @@ comparing() works too but is meant for Integer/objects, not raw int.
 
         // int [] nums = {1,1,1,2,2,3};    int k = 2;
         // int [] nums = {1};   int k = 2;
-        int [] nums = {1,2,1,2,1,2,3,1,3,2}; int k = 2;
-        // int [] nums = {3,0,1,0}; int k = 1;
+        // int [] nums = {1,2,1,2,1,2,3,1,3,2}; int k = 2;
+        int [] nums = {3,0,1,0}; int k = 1;
         System.out.println(Arrays.toString(LeetCode347(nums, k)));
     }
 }
