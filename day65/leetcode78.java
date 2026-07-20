@@ -13,7 +13,6 @@ public class leetcode78 {
         backtrack(resultList, new ArrayList<>(), nums, 0);
         return resultList;
     }
-
     public static void backtrack(List<List<Integer>> resultSets, List<Integer> tempSet, int nums[], int start){
         resultSets.add(new ArrayList<>(tempSet));
         for(int i=start;i<nums.length;i++){
@@ -22,7 +21,6 @@ public class leetcode78 {
             tempSet.remove(tempSet.size()-1);
         }
     }
-
     public static int subsets1(int n) { //Count total number of subsets
         int Tsets = 1;
         for(int i=0;i<n;i++){
@@ -94,7 +92,6 @@ public class leetcode78 {
         // remove last added character
         // so we can try other combinations
     }
-    
     public static void subsets3(int[] arr) {    ////Generate subsets of an array (without storing)
         helper(arr, 0, new ArrayList<>()); // start recursion
     }
@@ -115,7 +112,6 @@ public class leetcode78 {
         // 🔄 BACKTRACK
         curr.remove(curr.size() - 1); // remove last element        
     }
-
     public static void subsets4(int[] arr) {    // Generate subsets using include/exclude method
           helper4(arr, 0, new ArrayList<>());
     }
@@ -133,11 +129,38 @@ public class leetcode78 {
         helper4(arr, i + 1, curr);
     }
 
+    public static List<List<Integer>> subsets5(int [] nums){
+        int index=0;
+        List<Integer> current = new ArrayList<>();
+        List<List<Integer>> res= new ArrayList<>();
+        
+        helper5(nums,index,current,res);
+        return res;
+    }
+    public static void helper5(int[] nums, int index, List<Integer> current, List<List<Integer>> res){
+        if(index == nums.length){
+            res.add(new ArrayList<>(current));
+            return ;    // return res with list of list at void
+        }//System.out.println("subsets");
+
+        // exclude
+        helper5(nums,index+1,current,res);
+        // include
+        current.add(nums[index]);
+        helper5(nums,index+1,current,res);
+        // backtrack
+        current.remove(current.size()-1);
+
+        return ;    // return res with list of list at void
+    }
     public static void main(String[] args) {
         // int n = 3;
-        int nums[] = {2,1};
-        // String s = "ab";
-        System.out.println(subsets(nums));
+        // int index=0;
+        // List<Integer> current = new ArrayList<>();
+        // List<List<Integer>> res= new ArrayList<>();
+
+        int nums[] = {2,1,3};
+        System.out.println(subsets5(nums));
     }
 }
 
@@ -197,3 +220,20 @@ count → print → recursion → include/exclude → store
 
 👉 Now you are fully ready for LeetCode 78 👍
 */
+
+
+/**
+Subsets Recursion — Debug Checklist
+Before submitting, check:
+
+☐ Base case uses == not =
+☐ Base case triggers at index == nums.length (not length-1 or too early)
+☐ result.add(new ArrayList<>(current)) — never result.add(current)
+☐ Backtrack step present: current.remove(current.size()-1) right after include recursion
+☐ Backtrack removes the last element added, not a random index
+☐ Loop-based version uses i+1 in recursive call, not index+1
+☐ For duplicates (LC90): array is sorted first
+☐ For duplicates (LC90): skip logic is if(i > index && nums[i]==nums[i-1]) continue;
+☐ Not confusing this with permutations (no "visited" array needed here)
+☐ Final result size == 2^n for plain subsets (sanity check on small input)
+ */
