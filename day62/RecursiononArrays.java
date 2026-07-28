@@ -41,7 +41,7 @@ public class RecursiononArrays {
 
         int maxVal=max2(nums,i+1);
 
-        System.out.println(nums[i]);
+        System.out.println(nums[i]+"<");
 
         if(nums[i] > maxVal){
             System.out.println(nums[i]+",");
