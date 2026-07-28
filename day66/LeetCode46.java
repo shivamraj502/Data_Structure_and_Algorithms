@@ -13,7 +13,6 @@ public class LeetCode46 {
         backtrack(resultList,new ArrayList<>(),nums);
         return resultList;
     }
-    
     public static void backtrack(List<List<Integer>> resultList,List<Integer> tempList,int[] nums){
         if(tempList.size() == nums.length){
             resultList.add(new ArrayList<>(tempList));
@@ -31,8 +30,28 @@ public class LeetCode46 {
             // tempList.remove(tempList.size()-1); //index 
         }
     }
+    
+    public static List<List<Integer>> perm2(int [] nums){
+        List<List<Integer>> result = new ArrayList<>();
+        backtrack2(result, new ArrayList<>(), nums);
+        return result;
+    }
+    public static void backtrack2(List<List<Integer>> result, List<Integer> curr, int nums[]){
+        if(curr.size() == nums.length){
+            result.add(new ArrayList<>(curr));
+            return;
+        }
+
+        for(int n : nums){
+            if(curr.contains(n)) continue;
+
+            curr.add(n);
+            backtrack(result, curr, nums);
+            curr.remove(curr.size()-1);
+        }
+    }
     public static void main(String[] args) {
         int [] nums = {1,2,3};
-        System.out.println(perm(nums));
+        System.out.println(perm2(nums));
     }
 }
