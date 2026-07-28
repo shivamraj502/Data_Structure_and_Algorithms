@@ -35,19 +35,19 @@ public class RecursiononArrays {
     public static int max2(int [] nums,int i){
         
         if(i==nums.length-1){
-            System.out.println(nums[i]+">");
+            // System.out.println(nums[i]+">");
             return nums[i];
         }
 
         int maxVal=max2(nums,i+1);
 
-        System.out.println(nums[i]+"<");
+        // System.out.println(nums[i]+"<");
 
         if(nums[i] > maxVal){
-            System.out.println(nums[i]+",");
+            // System.out.println(nums[i]+",");
             return nums[i];
         }else{
-            System.out.println(maxVal+".");
+            // System.out.println(maxVal+".");
             return maxVal;
         }
     }
