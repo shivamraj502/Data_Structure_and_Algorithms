@@ -34,6 +34,16 @@ public class LeetCode17_22 {
          helperLC(resList,digits,i+1, curr+letters.charAt(j) ,map);
       }
     }
+    
+   static List<String> result = null;
+   public static List<String> letComb2(String digits){
+      result = new ArrayList<>();
+      helper2(0, digits, new StringBuilder());
+      return result;
+   }
+   public static void helper2(List<String> resList, String digits, int i, String curr, String [] map){
+      
+   }
     public static void main(String[] args) {
         String nums = "23";
         System.out.println(LetComb(nums));
