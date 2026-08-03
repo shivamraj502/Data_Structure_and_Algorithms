@@ -36,17 +36,33 @@ public class LeetCode17_22 {
     }
     
    static List<String> result = null;
+   static String [] mapping = new String[] { "","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+
    public static List<String> letComb2(String digits){
       result = new ArrayList<>();
+      
+      if(digits.length() == 0) return result;
       helper2(0, digits, new StringBuilder());
       return result;
    }
-   public static void helper2(List<String> resList, String digits, int i, String curr, String [] map){
-      
+   public static void helper2(int length, String digits, StringBuilder temp){
+      if(length == digits.length()){
+         result.add(temp.toString());
+         return;
+      }
+
+      char ch = digits.charAt(length);
+      String str = mapping[ch - '0'];
+      for(char c : str.toCharArray()){
+         temp.append(c);
+         helper2(length+1,digits,temp);
+         temp.deleteCharAt(temp.length()-1);
+      }
    }
     public static void main(String[] args) {
         String nums = "23";
-        System.out.println(LetComb(nums));
+      //   System.out.println(LetComb(nums));
+        System.out.println(letComb2(nums));
         // System.out.println(leet22(nums));
     }
 }
