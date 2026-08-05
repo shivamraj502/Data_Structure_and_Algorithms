@@ -37,7 +37,6 @@ public class LeetCode17_22 {
     
    static List<String> result = null;
    static String [] mapping = new String[] { "","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-
    public static List<String> letComb2(String digits){
       result = new ArrayList<>();
       
@@ -59,11 +58,15 @@ public class LeetCode17_22 {
          temp.deleteCharAt(temp.length()-1);
       }
    }
-    public static void main(String[] args) {
-        String nums = "23";
+   
+   
+   public static void main(String[] args) {
+      String nums = "23";
       //   System.out.println(LetComb(nums));
-        System.out.println(letComb2(nums));
-        // System.out.println(leet22(nums));
+      System.out.println(letComb2(nums));
+
+      System.out.println(leet22(nums));
+
     }
 }
 
