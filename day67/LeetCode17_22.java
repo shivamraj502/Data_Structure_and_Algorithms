@@ -59,13 +59,40 @@ public class LeetCode17_22 {
       }
    }
    
-   
-   public static void main(String[] args) {
-      String nums = "23";
-      //   System.out.println(LetComb(nums));
-      System.out.println(letComb2(nums));
+   public static List<String> leet22(int n){
+      List<String> res = new ArrayList<>();
 
-      System.out.println(leet22(nums));
+      helper3(n,n, new StringBuilder(), res);
+      return res;
+   }
+   public static void helper3(int open, int close, StringBuilder temp, List<String> res){
+      if(open == 0 && close == 0){
+         res.add(temp.toString());
+         return;
+      }
+
+      if(open > 0){
+         temp.append('(');
+         helper3(open-1, close, temp, res);
+         temp.deleteCharAt(temp.length()-1);
+      }
+
+      if(close > open){
+         temp.append(')');
+         helper3(open, close-1, temp, res);
+         temp.deleteCharAt(temp.length()-1);
+      }
+   }
+
+   public static void main(String[] args) {
+      // String nums = "23";
+      //   System.out.println(LetComb(nums));
+      // System.out.println(letComb2(nums));
+
+      int num = 0;
+      // int num = 1;
+      // int num = 3;
+      System.out.println(leet22(num));
 
     }
 }
