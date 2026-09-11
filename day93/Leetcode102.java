@@ -14,11 +14,31 @@ public class Leetcode102{
             this.val=val;
         }
     }
-    public static void inorder(TreeNode1 root, List<Integer> res){
-        if(root == null){ return; }
-        inorder(root.left,res);
-        res.add(root.val);
-        inorder(root.right, res);
+    public static void inorder(TreeNode1 node, List<Integer> res){
+        if(node == null){ return; }
+        inorder(node.left,res);
+        res.add(node.val);
+        inorder(node.right, res);
+    }
+    public static List<List<Integer>> levelOrder(TreeNode1 node){
+        List<List<Integer>> res = new ArrayList<>();
+        if(node == null){ return res;}
+
+        Queue<TreeNode1> q = new LinkedList<>();
+        q.add(node);
+
+        while(! q.isEmpty()){
+            int levSize = q.size();
+            List<Integer> currList = new ArrayList<>();
+
+            for(int i=1;i<=levSize;i++){
+                TreeNode1 curr = q.poll();
+                currList.add(curr.val);
+                
+                if(curr.left != null){q.add(curr.left);}
+                if(curr.right != null){q.add(curr.right);}
+            }res.add(currList);
+        }return res;
     }
 
     public static void main(String[] args) {
@@ -31,5 +51,10 @@ public class Leetcode102{
         List<Integer> in = new ArrayList<>();
         inorder(root,in);
         System.out.println("inorder trav: "+in);
+
+        // List<List<Integer>> levels = new ArrayList<>();
+        // levelOrder(root,levels);
+        List<List<Integer>> levels = levelOrder(root);
+        System.out.println("Level order Trav: "+levels);
     }
 }
