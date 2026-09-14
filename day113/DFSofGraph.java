@@ -6,11 +6,11 @@ Goal: Learn depth-based exploration.
  */
 
 import java.util.*;
-public class Graph {
+public class DFSofGraph {
     int vertices;
     ArrayList<ArrayList<Integer>> adj;
 
-    Graph(int vertices) {
+    DFSofGraph(int vertices) {
         this.vertices = vertices;
         adj = new ArrayList<>();
 
@@ -36,7 +36,7 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph(6);
+        DFSofGraph graph = new DFSofGraph(6);
 
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
