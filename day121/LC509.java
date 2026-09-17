@@ -43,9 +43,10 @@ public class LC509 {
         
         return dp[n];
     }
-    
+
     //Space Optimized DP, time : O(n), space : O(1)
     public static int fib4(int n){
+        if(n<=1)return n;
         int [] dp = new int[n+1];
         int pre1 = 1; int pre2 = 0;
 
