@@ -29,9 +29,7 @@ public class LC253 {
                 endPointer++;
             }
             startPointer++;
-        }
-
-        return roomsNeeded;
+        }return roomsNeeded;
     }
     public static void main(String[] args) {
         int[][] intervals1 = {{0, 30}, {5, 10}, {15, 20}};
