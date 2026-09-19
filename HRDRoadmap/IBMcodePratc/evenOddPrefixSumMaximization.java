@@ -14,8 +14,6 @@ public class evenOddPrefixSumMaximization {
             if(sum % 2 != 0) {
                 maxOdd = Math.max(maxOdd, sum);
             }
-        }
-
-        System.out.println(maxOdd);
+        }System.out.println(maxOdd);
     }
 }
