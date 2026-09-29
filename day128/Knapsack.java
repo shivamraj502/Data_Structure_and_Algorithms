@@ -1,11 +1,10 @@
-import java.util.Arrays;
-
 /**🪙 WEEK 19 — 0/1 Knapsack Patterns
 Day 128 – 0/1 Knapsack Problem
 - Concept: Core of decision-based DP.
 - Problem: 0/1 Knapsack – GFG
 - Goal: Learn decision-based recursion. */
 
+import java.util.Arrays;
 public class Knapsack {
     public static int knapsack(int[] w, int [] v, int c){
         if(w.length!=v.length){return -1;}
