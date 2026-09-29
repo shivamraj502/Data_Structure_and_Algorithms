@@ -30,7 +30,8 @@ public class LC416 {
         }return dp[nums.length][target];
     }
     public static void main(String [] args){
-        int [] nums = {1,5,11,5};
+        int [] nums = {0};
+        // int [] nums = {1,5,11,5};
         // int [] nums = {1,2,3,5};
         // int [] nums = {1,1,1,1};
         // int [] nums = {2,2,3,5};
