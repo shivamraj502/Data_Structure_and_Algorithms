@@ -1,8 +1,7 @@
-import java.util.Arrays;
-
 /**Day 144 – Job Sequencing Problem
 Problem: Job Sequencing – GFG
 Goal: Learn scheduling-based greedy logic. */
+import java.util.Arrays;
 public class JobSequencing {
     static class Job {
         char id;
