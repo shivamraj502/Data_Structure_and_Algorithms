@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
 Day 70 – Sudoku Solver
 Concept: Recursive filling with constraints.
@@ -10,7 +12,6 @@ public class LeetCode37 {
         solve(board);
         return board;
     }
-
     public static boolean solve(char[][] board){
         for(int row = 0; row < 9; row++){
             for(int col = 0; col < 9; col++){
@@ -28,7 +29,6 @@ public class LeetCode37 {
         }
         return true;
     }
-
     public static boolean isValid(char[][] board, int row, int col, char digit){
         for(int c = 0; c < 9; c++){
             if(board[row][c] == digit) return false;
@@ -45,7 +45,6 @@ public class LeetCode37 {
         }
         return true;
     }
-
     // Prints board in LeetCode's array-of-arrays string format
     public static void printBoard(char[][] board){
         StringBuilder sb = new StringBuilder();
@@ -63,6 +62,51 @@ public class LeetCode37 {
         System.out.println(sb.toString());
     }
 
+    public static void solve2(char[][] board){
+        helper2(board);
+    }
+    public static boolean helper2(char[][] board){
+        for(int i=0;i<board.length;i++){
+            for(int j=0;j<board[0].length;j++){
+
+            if(board[i][j]=='.') {
+                for(char k='1';k<='9';k++){
+                   if(isValid2(board, i, j, k)){
+                    board[i][j]=k;
+                    if(helper2(board)) return true;
+                    board[i][j]='.';
+                    }
+                }return false;
+            }
+            }
+        }return true;
+    }
+    public static boolean isValid2(char[][] board,int r, int c, char n){
+        // row
+        for(int i=0;i<board[0].length;i++){
+            if(board[r][i]==n) return false;
+        }
+
+        //column
+        for(int i=0;i<board[0].length;i++){
+            if(board[i][c]==n) return false;
+        }
+
+        //3x3 box 
+        for(int i=r/3*3;i<(r/3)*3+3;i++){
+            for(int j=c/3*3;j<(c/3)*3+3;j++){
+            if(board[i][j]==n) return false;
+            }
+        }
+
+        return true;
+    }
+    public static void print2(char[][] board){
+        for(char [] c : board){
+            System.out.print(Arrays.toString(c));   System.out.println();
+            // System.out.print(c); // System.out.println();
+        }
+    }
     public static void main(String[] args) {
         char[][] board = {
             {'5','3','.','.','7','.','.','.','.'},
@@ -79,13 +123,27 @@ public class LeetCode37 {
         // System.out.print("Input: board = ");
         // printBoard(board);
 
-        char [][] result =solveSudoku(board);
-        for(char [] c : result){
-            System.out.println(c);
-        }System.out.println();
+        // char [][] result =solveSudoku(board);
+        // for(char [] c : result){
+        //     System.out.println(c);
+        // }System.out.println();
 
-        // solveSudoku(board);
-        // System.out.print("Output: ");
-        // printBoard(board);
+        solveSudoku(board);
+        System.out.print("Output: ");
+        printBoard(board);
+
+        // solve2(board);
+        // // print2(board);
+        // char [][] result2 =solve2(board);
+        // for(char [] c : result2){
+        //     System.out.println(c);
+        // }System.out.println();
+        // 
+        solve2(board);
+        print2(board);
+        // char [][] result2 =solve2(board);
+        // for(char [] c : result2){
+        //     System.out.println(c);
+        // }System.out.println();
     }
 }
