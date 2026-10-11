@@ -13,7 +13,6 @@ public class LC131_93 {
         helper(s, 0, new ArrayList<>(), result);
         return result;
     }
-
     public static void helper(String s, int start, List<String> current, List<List<String>> result){
         if(start == s.length()){
             result.add(new ArrayList<>(current));
@@ -29,7 +28,6 @@ public class LC131_93 {
             }
         }
     }
-
     public static boolean isPalindrome(String s){
         int left = 0, right = s.length()-1;
         while(left < right){
@@ -40,6 +38,31 @@ public class LC131_93 {
         return true;
     }
 
+    public static List<List<String>> partition2(String s){
+        List<List<String>> res = new ArrayList<>();
+        parHelper2(s, 0, new ArrayList<>(), res);
+        return res;
+    }
+    public static void parHelper2(String s,int i,List<String> curr,List<List<String>> res){
+        if(i==s.length()){res.add(new ArrayList<>(curr));return;}
+
+        for(int end=i;end<s.length();end++){
+            String piece = s.substring(i, end+1);
+            if(isPal2(piece)){
+                curr.add(piece);
+                parHelper2(s, end+1, curr, res);
+                curr.remove(curr.size()-1);
+            }
+        }
+    }
+    public static boolean isPal2(String s){
+        int left = 0;int right = s.length()-1;
+        while(left < right){
+            if(s.charAt(left)!=s.charAt(right))return false;
+            left++;
+            right--;
+        }return true;
+    }
 
     public static List<String> restoreIpAddresses(String s) {
         List<String> result = new ArrayList<>();
@@ -72,9 +95,11 @@ public class LC131_93 {
         return val >= 0 && val <= 255;
     }
     public static void main(String[] args) {
-        System.out.println(partition("aab"));
+        // System.out.println(partition("aab"));
         // System.out.println(partition("a"));
         // System.out.println(partition("aabb"));
+
+        System.out.println(partition2("aab"));
 
         System.out.println(restoreIpAddresses("25525511135"));
         // System.out.println(restoreIpAddresses("0000"));
@@ -83,7 +108,7 @@ public class LC131_93 {
 }
 
 /**
-
+leetcode 131:
 Example 1:
 Input: s = "aab"
 Output: [["a","a","b"],["aa","b"]]
