@@ -36,8 +36,7 @@ public class LeetCode39 {
         helper2(candidates, 0, target, new ArrayList<>(), result);
         return result;
     }
-    public static void helper2(int[] candidates, int index, int remaining,
-                               List<Integer> current, List<List<Integer>> result){
+    public static void helper2(int[] candidates, int index, int remaining,List<Integer> current, List<List<Integer>> result){
         if(remaining == 0){
             result.add(new ArrayList<>(current));
             return;
@@ -55,12 +54,46 @@ public class LeetCode39 {
         helper2(candidates, index + 1, remaining, current, result);
     }
 
+    public static List<List<Integer>> combinationSum3(int[] canditates, int target){
+        List<List<Integer>> res = new ArrayList<>();
+        helper3(canditates,target,0,res,new ArrayList<>());
+        return res;
+    }
+    public static void helper3(int[] c,int rem,int i, List<List<Integer>> res, List<Integer> curr){
+        if(rem==0){ res.add(new ArrayList<>(curr)); return;}
+        if(rem < 0) return;
+
+        for(int j=i;j<c.length;j++){
+            curr.add(c[j]);
+            helper3(c,rem-c[j],j,res,curr);
+            curr.remove(curr.size()-1);
+        }
+    }
+    
+    public static List<List<Integer>> combinationSum4(int[] canditates, int target){
+        List<List<Integer>> res = new ArrayList<>();
+        helper4(canditates,target,0,res,new ArrayList<>());
+        return res;
+    }
+    public static void helper4(int[] c,int rem,int i, List<List<Integer>> res, List<Integer> curr){
+        if(rem==0){ res.add(new ArrayList<>(curr)); return;}
+        if(rem < 0) return;
+
+        curr.add(c[i]);
+        helper3(c,rem-c[i],i,res, curr);
+        curr.remove(curr.size()-1);
+        helper3(c,rem,i+1,res, curr);
+    }
     public static void main(String[] args) {
         int[] candidates = {2,3,6,7};
         int target = 7;
-        // System.out.println(combinationSum(candidates, target));
-
+        System.out.println(combinationSum(candidates, target));
+        System.out.println();
         System.out.println(combinationSum2(candidates, target));
+        System.out.println();
+        System.out.println(combinationSum3(candidates, target));
+        System.out.println();
+        System.out.println(combinationSum4(candidates, target));
 
         // int[] candidates2 = {2,3,5};
         // int target2 = 8;
