@@ -100,12 +100,21 @@ public class LC131_93 {
         ipHelper2(s,new ArrayList<>(),res,0);
         return res;
     }
-    public static void ipHelper2(String s,List<String> parts,List<String> res,int i){
-        if(parts.size()==4){
-            if(i==s.length()){ res.add(String.join(".", parts));}
+    public static void ipHelper2(String s,List<String> curr,List<String> res,int i){
+        if(curr.size()==4){
+            if(i==s.length()){ res.add(String.join(".", curr));}
             return;
         }
 
+        for(int j =1;j<=3;j++){
+            if(i+j>s.length())break;
+
+            String temp = s.substring(i,i+j);
+            if(!(isValid2(temp))) continue;
+            curr.add(temp);
+            ipHelper2(s,curr,res,i+j);
+            curr.remove(curr.size()-1);
+        }
         
     }
     public static boolean isValid2(String piece){
@@ -118,7 +127,7 @@ public class LC131_93 {
         // System.out.println(partition("a"));
         // System.out.println(partition("aabb"));
 
-        System.out.println(partition2("aab"));
+        // System.out.println(partition2("aab"));
 
         // System.out.println(restoreIpAddresses("25525511135"));
         // System.out.println(restoreIpAddresses("0000"));
