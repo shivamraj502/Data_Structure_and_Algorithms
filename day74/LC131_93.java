@@ -94,6 +94,25 @@ public class LC131_93 {
         int val = Integer.parseInt(piece);
         return val >= 0 && val <= 255;
     }
+    
+    public static List<String> restoreIpAddresses2(String s){
+        List<String> res = new ArrayList<>();
+        ipHelper2(s,new ArrayList<>(),res,0);
+        return res;
+    }
+    public static void ipHelper2(String s,List<String> parts,List<String> res,int i){
+        if(parts.size()==4){
+            if(i==s.length()){ res.add(String.join(".", parts));}
+            return;
+        }
+
+        
+    }
+    public static boolean isValid2(String piece){
+        if(piece.length() >1 && piece.charAt(0)=='0'){ return false;}
+        int val = Integer.parseInt(piece);
+        return val>=0 && val<=255;
+    }
     public static void main(String[] args) {
         // System.out.println(partition("aab"));
         // System.out.println(partition("a"));
@@ -101,9 +120,11 @@ public class LC131_93 {
 
         System.out.println(partition2("aab"));
 
-        System.out.println(restoreIpAddresses("25525511135"));
+        // System.out.println(restoreIpAddresses("25525511135"));
         // System.out.println(restoreIpAddresses("0000"));
         // System.out.println(restoreIpAddresses("101023"));
+        
+        System.out.println(restoreIpAddresses2("25525511135"));
     }
 }
 
