@@ -69,7 +69,50 @@ public class LC1 {
     }
     
     public static int[] twoSum6(int[] nums, int t) {
-        
+        int [][] arr = new int[nums.length][2];
+
+        for(int i=0;i<nums.length;i++){
+            arr[i][0] = nums[i];
+            arr[i][1] = i;
+        }
+
+        Arrays.sort(arr,(a,b) -> Integer.compare(a[0],b[0]));
+
+        int left =0;int right = nums.length-1;
+
+        while(left<right){
+            int sum = arr[left][0]+arr[right][0];
+
+            if(sum == t){
+                return new int[]{arr[left][1],arr[right][1]};
+            }else if(sum<t){
+                left++;
+            }else right--;
+        }return new int[]{};
+
+    }
+    
+    public static int[] twoSum7(int[] nums, int t) {
+        int [][] arr = new int[nums.length][2];
+
+        for(int i=0;i<nums.length;i++){
+            arr[i][0] = nums[i];
+            arr[i][1] = i;
+        }
+
+        Arrays.sort(arr,(a,b) -> Integer.compare(a[0], b[0]));
+
+        for (int i = 0; i < nums.length; i++) {
+            int complement = t - nums[i];
+            int left = i + 1; int right = nums.length - 1;  int mid;
+
+            while (left <= right) {
+                mid = left + (right - left) / 2;
+                if(arr[mid][0]==complement) return new int[]{arr[i][1],arr[mid][1]};
+                else if(arr[mid][0] < complement) left = mid +1;
+                else right = mid - 1;
+            }
+        }return new int[]{};
 
     }
     public static void main(String[] args) {
@@ -93,6 +136,9 @@ public class LC1 {
         
         int [] res6 =twoSum6(nums, t);
         for(int n : res6){System.out.print(n+" ");} System.out.println();
+        
+        int [] res7 =twoSum7(nums, t); System.out.print("7. ");
+        for(int n : res7){System.out.print(n+" ");} System.out.println();
     }
 }
 
