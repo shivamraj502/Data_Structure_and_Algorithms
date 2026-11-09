@@ -4,9 +4,7 @@ Concept: HashMap<Integer, List<Integer>>
 Problem: Group Anagrams – LeetCode49
 Goal: Practice composite data structures.
  */
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 public class LeetCode49 {
     public static List<List<String>> groupAnagrams(String[] strs) {
         List<List<String>> res = new ArrayList<>();
@@ -42,9 +40,57 @@ public class LeetCode49 {
             curr.clear();
         }return res;
     }
+    
+    public static List<List<String>> groupAnagrams2(String[] strs) {
+        Map<String,List<String>> map = new HashMap<>();
+
+        for(String s : strs){
+            char[] temp = s.toCharArray();
+            Arrays.sort(temp);
+            String key = new String(temp);
+
+            map.computeIfAbsent(key, k -> new ArrayList<>()).add(s);
+        }return new ArrayList<>(map.values());
+    }
+    
+    public static List<List<String>> groupAnagrams3(String[] strs) {
+        Map<String,List<String>> map = new HashMap<>();
+
+        for(String s : strs){
+            int [] freq = new int[26];
+
+            for(char c : s.toCharArray()){
+                freq[c-'a']++;
+            }
+
+            StringBuilder key = new StringBuilder();
+            for(int count: freq){
+                key.append(count).append('#');
+            }
+
+            map.computeIfAbsent(key.toString(), k->new ArrayList<>()).add(s);
+        }return new ArrayList<>(map.values());
+    }
+    
+    public static List<List<String>> groupAnagrams4(String[] strs) {
+        Map<Map<Character,Integer>, List<String>> groups = new HashMap<>();
+
+        for(String s : strs){
+            Map<Character,Integer> freq = new HashMap<>();
+
+            for(char c : s.toCharArray()){
+                freq.put(c,freq.getOrDefault(c, 0)+1);
+            }
+
+            groups.computeIfAbsent(freq, k -> new ArrayList<>()).add(s);
+        }return new ArrayList<>(groups.values());
+    }
     public static void main(String[] args) {
         String [] s = {"eat","tea","tan","ate","nat","bat"};
         System.out.println(groupAnagrams(s));
+        System.out.println(groupAnagrams2(s));
+        System.out.println("\ngroup anag3 :"+groupAnagrams3(s));
+        System.out.println("\ngroup anag4 :"+groupAnagrams4(s));
     }
 }
 
