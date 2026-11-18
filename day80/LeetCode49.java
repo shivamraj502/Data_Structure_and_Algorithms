@@ -85,12 +85,37 @@ public class LeetCode49 {
             groups.computeIfAbsent(freq, k -> new ArrayList<>()).add(s);
         }return new ArrayList<>(groups.values());
     }
+
+    public static List<List<String>> groupAnagrams5(String[] strs) {
+        List<List<String>> res = new ArrayList<>();
+        List<String> temp = new ArrayList<>();
+
+        for(String s : strs){
+            char[] arr = s.toCharArray();
+            Arrays.sort(arr);
+            String key = new String(arr);
+
+            int i=0;
+            while(i < temp.size()&& !temp.get(i).equals(key)){
+                i++;
+            }
+
+            if(i == temp.size()){
+                temp.add(key);
+                res.add(new ArrayList<>());  
+            }
+
+            res.get(i).add(s);
+            
+        }return res;
+    }
     public static void main(String[] args) {
         String [] s = {"eat","tea","tan","ate","nat","bat"};
         System.out.println(groupAnagrams(s));
         System.out.println(groupAnagrams2(s));
         System.out.println("\ngroup anag3 :"+groupAnagrams3(s));
         System.out.println("\ngroup anag4 :"+groupAnagrams4(s));
+        System.out.println("\ngroup anag5 :"+groupAnagrams5(s));
     }
 }
 
